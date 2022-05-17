@@ -101,6 +101,54 @@
             android:textSize="20sp"/>
     </RelativeLayout>
 
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_marginBottom="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Your Food MBTI: "
+            android:layout_alignParentLeft="true"
+            android:id="@+id/result1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/result2"
+            android:layout_alignParentRight="true"
+            android:text="0"
+            android:textSize="20sp"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_marginBottom="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="FBTI 유형: "
+            android:layout_alignParentLeft="true"
+            android:id="@+id/result"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/fbti_res"
+            android:layout_alignParentRight="true"
+            android:text="0"
+            android:textSize="20sp"/>
+    </RelativeLayout>
+
     <Button
         android:id="@+id/details"
         android:layout_width="wrap_content"

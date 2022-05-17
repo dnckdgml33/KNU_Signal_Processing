@@ -49,7 +49,7 @@ public class testActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(mQuestionNumber % 4 == 1){
-                    if(mQuestionNumber < 9) mScore_sensitive++;
+                    if(mQuestionNumber > 8) mScore_sensitive++;
                     mScore_sensitive -= 13;
                 }
                 else if(mQuestionNumber % 4 == 2){
@@ -142,6 +142,7 @@ public class testActivity extends AppCompatActivity {
                 if(mQuestionNumber == 1) mScore_sensitive++;
                 if(mQuestionNumber == 6) mScore_rich++;
                 if(mQuestionNumber == 11) mScore_much++;
+                if(mQuestionNumber == 4) mScore_challenge++;
                 if(mQuestionNumber == 15){
                     Intent intent2 = new Intent(getApplicationContext(), MBTIRes.class);
                     intent2.putExtra("Sensitive",mScore_sensitive);
@@ -222,7 +223,7 @@ public class testActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(mQuestionNumber % 4 == 1){
-                    if(mQuestionNumber < 9) mScore_sensitive--;
+                    if(mQuestionNumber > 8) mScore_sensitive--;
                     mScore_sensitive += 13;
                 }
                 else if(mQuestionNumber % 4 == 2){
