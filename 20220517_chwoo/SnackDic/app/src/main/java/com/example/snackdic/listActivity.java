@@ -48,11 +48,9 @@ public class listActivity extends AppCompatActivity {
         // 리사이클러뷰에 뿌려줄 데이터를 담을 ArrayList를 초기화
         mArrayList = new ArrayList<TestVo>();
 
-        // 리사이클러뷰에 표시할 데이터 리스트 생성(임으로 100개)
-        for (int i=0; i<100; i++) {
-            mArrayList.add(new TestVo(String.valueOf(i), "샘플" + String.valueOf(i)));
-            //String.format("샘플 %d", i)
-        }
+        // 데이터 읽어 옴
+        readFromExcel();
+        readFromTxt();
 
         // 어댑터에 리스트에 뿌려줄 ArrayList를 적용.
         mAdapter = new TestRecyclerViewAdapter( mArrayList);
@@ -63,9 +61,6 @@ public class listActivity extends AppCompatActivity {
 
         // notifyDataSetChanged를 호출하여 adapter의 값이 변경되었다는 것을 알려준다.
         mAdapter.notifyDataSetChanged();
-
-        readFromExcel();
-        readFromTxt();
     }
 
     // 뒤로가기 버튼 누르면 스택 쌓인곳으로 가지말고 메인으로
@@ -96,6 +91,11 @@ public class listActivity extends AppCompatActivity {
                         for(int col=0;col<colTotal;col++) {
                             String contents = sheet.getCell(col, row).getContents();
                             sb.append("col"+col+" : "+contents+" , ");
+
+                            if(col==1) // 대분류(ex. 패스트푸드, 분식, ...)
+                            {
+                                mArrayList.add(new TestVo(String.valueOf(row), contents + String.valueOf(row)));
+                            }
                         }
                         Log.i("test", sb.toString());
                     }
