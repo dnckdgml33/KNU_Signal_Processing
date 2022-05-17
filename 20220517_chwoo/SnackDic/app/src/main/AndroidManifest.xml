@@ -24,6 +24,18 @@
         </activity>
 
         <activity
+            android:name=".listActivity2">
+        </activity>
+
+        <activity
+            android:name=".listActivity3">
+        </activity>
+
+        <activity
+            android:name=".listEndActivity">
+        </activity>
+
+        <activity
             android:name=".randomActivity">
         </activity>
 
@@ -33,6 +45,10 @@
 
         <activity
             android:name=".testActivity">
+        </activity>
+
+        <activity
+            android:name=".popupActivity">
         </activity>
 
     </application>

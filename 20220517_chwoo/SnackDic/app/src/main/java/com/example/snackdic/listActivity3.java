@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,18 +18,19 @@ import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
-public class listActivity extends AppCompatActivity {
-
+public class listActivity3 extends AppCompatActivity {
+    private Intent intent; //인텐트 선언
+    String mname;
     private ArrayList<TestVo2> mArrayList;
 
     // 어댑터 선언
-    private TestRecyclerViewAdapter2 mAdapter;
+    private TestRecyclerViewAdapter4 mAdapter;
     int dataCount = -1;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list);
+        setContentView(R.layout.activity_list2);
 
         RecyclerView mRecyclerView = findViewById(R.id.recycler_view);
 
@@ -53,25 +53,18 @@ public class listActivity extends AppCompatActivity {
         readFromTxt();
 
         // 어댑터에 리스트에 뿌려줄 ArrayList를 적용.
-        mAdapter = new TestRecyclerViewAdapter2(mArrayList);
+        mAdapter = new TestRecyclerViewAdapter4(mArrayList);
         mRecyclerView.setAdapter(mAdapter);
 
         // notifyDataSetChanged를 호출하여 adapter의 값이 변경되었다는 것을 알려준다.
         mAdapter.notifyDataSetChanged();
     }
 
-    // 뒤로가기 버튼 누르면 스택 쌓인곳으로 가지말고 메인으로
-    @Override
-    public void onBackPressed() {
-        // super.onBackPressed();
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
     // 엑셀에서 읽어오는 함수 인코딩형식 UTF-8
     public void readFromExcel() {
         String tmp = "";
+        intent = getIntent();// 인텐트 받아오기
+        String mname = intent.getStringExtra("mname"); //Adapter에서 받은 키값 연결
 
         try {
             InputStream is = getBaseContext().getResources().getAssets().open("snack_list_bytab.xls");
@@ -86,12 +79,16 @@ public class listActivity extends AppCompatActivity {
 
                     StringBuilder sb;
                     for(int row=rowIndexStart;row<rowTotal;row++) {
+                        String contents2 = sheet.getCell(2, row).getContents();
                         sb = new StringBuilder();
+
+                        if(contents2.equals(mname)==false) continue;
+
                         for(int col=0;col<colTotal;col++) {
                             String contents = sheet.getCell(col, row).getContents();
                             sb.append("col"+col+" : "+contents+" , ");
 
-                            if(col==1 && contents.equals(tmp)==false) // 대분류(ex. 패스트푸드, 분식, ...)
+                            if(col==3 && contents.equals(tmp)==false) // 간식 리스트
                             {
                                 tmp = contents;
                                 mArrayList.add(new TestVo2(contents));
@@ -142,6 +139,4 @@ public class listActivity extends AppCompatActivity {
             }
         }
     }
-
-
 }

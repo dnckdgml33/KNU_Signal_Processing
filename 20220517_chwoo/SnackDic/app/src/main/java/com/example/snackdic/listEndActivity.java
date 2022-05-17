@@ -15,6 +15,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -22,26 +28,17 @@ import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-
-import com.bumptech.glide.Glide;
-
-
-public class randomActivity extends AppCompatActivity {
-
-    int random;
-    Button buttonhome,buttonretry,buttonpopup;
+public class listEndActivity extends AppCompatActivity {
+    private Intent intent; //인텐트 선언
+    int supernum;
+    Button buttonhome,buttonpopup;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_random);
+        setContentView(R.layout.activity_listend);
 
         buttonhome = findViewById(R.id.rbuttonhome);
-        buttonretry = findViewById(R.id.rbuttonretry);
         buttonpopup = findViewById(R.id.rbuttonpopup);
 
         // 홈으로
@@ -49,15 +46,6 @@ public class randomActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        // 다시 돌리기
-        buttonretry.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), randomActivity.class);
                 startActivity(intent);
             }
         });
@@ -71,26 +59,17 @@ public class randomActivity extends AppCompatActivity {
             }
         });
 
-
-        random = randommaker();
-
-        getImgfromFirebase();
         readFromExcel();
         readFromTxt();
+        getImgfromFirebase();
 
-    }
-
-    // 뒤로가기 버튼 누르면 스택 쌓인곳으로 가지말고 메인으로
-    @Override
-    public void onBackPressed() {
-        // super.onBackPressed();
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(intent);
-        finish();
     }
 
     // 엑셀에서 읽어오는 함수 인코딩형식 UTF-8
     public void readFromExcel() {
+        intent = getIntent();// 인텐트 받아오기
+        String mname = intent.getStringExtra("mname"); //Adapter에서 받은 키값 연결
+
         try {
             InputStream is = getBaseContext().getResources().getAssets().open("snack_list_bytab.xls");
             Workbook wb = Workbook.getWorkbook(is);
@@ -108,6 +87,12 @@ public class randomActivity extends AppCompatActivity {
                         for(int col=0;col<colTotal;col++) {
                             String contents = sheet.getCell(col, row).getContents();
                             sb.append("col"+col+" : "+contents+" , ");
+
+                            if(col== 3 &&contents.equals(mname)==true)
+                            {
+                                supernum = row;
+                            }
+
                         }
                         Log.i("test", sb.toString());
                     }
@@ -125,6 +110,9 @@ public class randomActivity extends AppCompatActivity {
         byte buf[] = new byte[5120];
         String text = "";
 
+        intent = getIntent();// 인텐트 받아오기
+        String mname = intent.getStringExtra("mname"); //Adapter에서 받은 키값 연결
+
         try{
             is = am.open("snack_list_byname.txt");
 
@@ -132,12 +120,10 @@ public class randomActivity extends AppCompatActivity {
                 text = new String(buf);
             }
 
-
-
             String[] word = text.split("\n");
 
             TextView textView = (TextView) findViewById(R.id.rtext);
-            textView.setText(word[random]);
+            textView.setText(word[supernum]);
 
             StringBuilder sb;
             for(int i = 0; i < word.length; ++i) {
@@ -145,8 +131,6 @@ public class randomActivity extends AppCompatActivity {
                 sb.append("i is"+i+" : "+word[i]);
                 Log.i("test", sb.toString());
             }
-
-
 
             is.close();
         }catch (Exception e){
@@ -162,17 +146,11 @@ public class randomActivity extends AppCompatActivity {
         }
     }
 
-    // 랜덤 난수 생성기
-    public int randommaker(){
-        int randomNum = (int) (Math.random() * 218);
-        return randomNum;
-    }
-
     // 파이어베이스에서 이미지 가져오는 함수
     public void getImgfromFirebase(){
         ImageView load;
         String str1 = "snackimg/";
-        String to = Integer.toString(random);
+        String to = Integer.toString(supernum);
         str1 = str1.concat(to);
         str1 =  str1.concat(".jpg");
 
@@ -192,5 +170,4 @@ public class randomActivity extends AppCompatActivity {
         });
 
     }
-
 }
