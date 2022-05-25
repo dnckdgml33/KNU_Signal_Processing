@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#eeeeee"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/titleTV"
+            android:text="팝업메뉴"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:background="@color/design_default_color_primary"
+            android:layout_width="match_parent"
+            android:layout_height="53sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/near_Button"
+            android:text="주변가게보기"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="mNear"/>
+
+        <Button
+            android:id="@+id/app_Button"
+            android:text="배달앱 연결"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="mAppConnect"/>
+
+        <Button
+            android:id="@+id/cancel_Button"
+            android:text="닫기"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="mCancel"/>
+
+    </LinearLayout>
+</LinearLayout>
