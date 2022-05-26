@@ -66,8 +66,10 @@
         <activity
             android:name=".Aki1Activity">
         </activity>
+
         <activity android:name=".popupActivity"
-            android:theme="@style/popupTheme" android:screenOrientation="portrait"></activity>
+            android:theme="@style/popupTheme" android:screenOrientation="portrait">
+        </activity>
 
     </application>
 

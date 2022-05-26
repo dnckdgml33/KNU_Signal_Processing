@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intentget = getIntent();
         checker = intentget.getStringExtra("chk");
         //checker = "false";
-        Toast.makeText(getApplicationContext(), checker, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), checker, Toast.LENGTH_SHORT).show();
 
         String tmp = "true";
         /*if(checker.equals(tmp)){

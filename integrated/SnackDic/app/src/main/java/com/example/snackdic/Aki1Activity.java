@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,13 +37,21 @@ public class Aki1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aki1);
 
+
         score=findViewById(R.id.score);
         mainButton=findViewById(R.id.aki_mainbutton);
         shopButton=findViewById(R.id.aki_shopbutton);
         picture=findViewById(R.id.aki_pic);
         akiname=findViewById(R.id.aki_name);
+
+        Toast.makeText(getApplicationContext(), "액티비티 전환됨", Toast.LENGTH_SHORT).show();
+
+
         int[] answerList=getIntent().getIntArrayExtra(SCORES);//답안 저장하는 배열
+
+
         money=answerList[0];
+
         people=answerList[1];
         how=answerList[2];
         temp=answerList[3];
