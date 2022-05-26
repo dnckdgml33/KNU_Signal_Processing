@@ -17,7 +17,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -53,7 +52,6 @@ public class randomActivity extends YouTubeBaseActivity {
     //logcat 사용 설정
     private static final String TAG = "randomActivity";
 
-    String videourl;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -79,19 +77,14 @@ public class randomActivity extends YouTubeBaseActivity {
         random = randommaker();
 
         // 유튜브 관련 코드
-
-
         initPlayer();
-        //playVideo();
-        Button btnPlay = findViewById(R.id.youtubeBtn);
-        btnPlay.setOnClickListener(new View.OnClickListener() {
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void onClick(View view) {
-                VreadFromTxt();
-                Toast.makeText(getApplicationContext(), videourl, Toast.LENGTH_SHORT).show();
+            public void run() {
                 playVideo();
+                //딜레이 후 시작할 코드 작성
             }
-        });
+        }, 3000);// 3초 정도 딜레이를 준 후 시작
 
 
         // 홈으로
@@ -108,10 +101,10 @@ public class randomActivity extends YouTubeBaseActivity {
             @Override
             public void onClick(View view) {
                 //finish();
-                Intent intent = new Intent(randomActivity.this, emptyActivity.class);
+                Intent intent = new Intent(getApplicationContext(), emptyActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);//액티비티 스택제거
                 startActivity(intent);
-                //finish();
+                finish();
             }
         });
 
@@ -253,52 +246,7 @@ public class randomActivity extends YouTubeBaseActivity {
 
     // 유튜브 플레이 관련
 
-    // txt에서 읽어오는 함수
-    public void VreadFromTxt(){
-        AssetManager am = getResources().getAssets();
-        InputStream is = null;
-        byte buf[] = new byte[5120];
-        String text = "";
-
-        try{
-            is = am.open("testtest.txt");
-
-            if(is.read(buf) > 0){
-                text = new String(buf);
-            }
-
-
-
-            String[] word = text.split("\n");
-
-            videourl = word[random];
-
-            videourl = videourl.replaceAll("(\r\n|\r|\n|\n\r)", " ");
-            videourl.trim();
-
-            StringBuilder sb;
-            for(int i = 0; i < word.length; ++i) {
-                sb = new StringBuilder();
-                sb.append("i is"+i+" : "+word[i]);
-                Log.i("test", sb.toString());
-            }
-
-            is.close();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-
-        if(is!=null){
-            try{
-                is.close();
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-        }
-    }
-
     private void playVideo() {
-
         if(player != null) {
             if(player.isPlaying()) {
                 player.pause();

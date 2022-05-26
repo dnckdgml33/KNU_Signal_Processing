@@ -11,25 +11,10 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    String checker = "false"; // retry 체크
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // 유튜브 오류 해결위해 emptyActivity에서 받아오는 식으로 구현 시도중
-        Intent intentget = getIntent();
-        checker = intentget.getStringExtra("chk");
-        //checker = "false";
-        //Toast.makeText(getApplicationContext(), checker, Toast.LENGTH_SHORT).show();
-
-        String tmp = "true";
-        /*if(checker.equals(tmp)){
-            Toast.makeText(getApplicationContext(), checker, Toast.LENGTH_SHORT).show();
-            //Intent intent = new Intent(getApplicationContext(), randomActivity.class);
-            //startActivity(intent);
-        }*/
 
         // 분류별 보기 버튼 클릭시 액티비티 전환
         Button list_btn = (Button) findViewById(R.id.button_list);

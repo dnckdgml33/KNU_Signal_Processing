@@ -37,6 +37,7 @@ public class listEndActivity extends YouTubeBaseActivity {
     private Intent intent; //인텐트 선언
     int supernum;
     Button buttonhome,buttonpopup;
+    String snackname;
 
     //객체 선언
     YouTubePlayerView playerView;
@@ -44,7 +45,7 @@ public class listEndActivity extends YouTubeBaseActivity {
     //유튜브 API KEY와 동영상 ID 변수 설정
     private static String API_KEY = "AIzaSyBHoQH3xkRiQz7UMR9qYaASxJBPPo0-LBs";
     //https://www.youtube.com/watch?v=hl-ii7W4ITg ▶ 유튜브 동영상 v= 다음 부분이 videoId
-    private static String videoId = "hl-ii7W4ITg";
+    private static String videoId = "t2rmf3LRajw";
     //logcat 사용 설정
     private static final String TAG = "listEndActivity";
 
@@ -69,14 +70,13 @@ public class listEndActivity extends YouTubeBaseActivity {
         },3000);
 
         initPlayer();
-        //playVideo();
-        Button btnPlay = findViewById(R.id.youtubeBtn2);
-        btnPlay.setOnClickListener(new View.OnClickListener() {
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void onClick(View view) {
+            public void run() {
                 playVideo();
+                //딜레이 후 시작할 코드 작성
             }
-        });
+        }, 3000);// 3초 정도 딜레이를 준 후 시작
 
         // 홈으로
         buttonhome.setOnClickListener(new View.OnClickListener() {
@@ -87,18 +87,21 @@ public class listEndActivity extends YouTubeBaseActivity {
             }
         });
 
+
+
+        readFromExcel();
+        readFromTxt();
+        getImgfromFirebase();
+
         // 팝업 메뉴
         buttonpopup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),popupActivity.class);
+                intent.putExtra("snack_name",snackname);
                 startActivity(intent);
             }
         });
-
-        readFromExcel();
-        readFromTxt();
-        getImgfromFirebase();
 
     }
 
@@ -161,6 +164,8 @@ public class listEndActivity extends YouTubeBaseActivity {
 
             TextView textView = (TextView) findViewById(R.id.ltext);
             textView.setText(word[supernum]);
+
+            snackname = word[supernum];
 
             StringBuilder sb;
             for(int i = 0; i < word.length; ++i) {

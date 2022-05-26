@@ -29,25 +29,33 @@
             android:id="@+id/near_Button"
             android:text="주변가게보기"
             android:textSize="20sp"
-            android:layout_width="wrap_content"
+            android:layout_width="145dp"
             android:layout_height="wrap_content"
+            android:background="@drawable/pretty_button"
             android:onClick="mNear"/>
 
         <Button
             android:id="@+id/app_Button"
             android:text="배달앱 연결"
             android:textSize="20sp"
-            android:layout_width="wrap_content"
+            android:layout_width="145dp"
             android:layout_height="wrap_content"
+            android:background="@drawable/pretty_button"
             android:onClick="mAppConnect"/>
 
-        <Button
-            android:id="@+id/cancel_Button"
-            android:text="닫기"
-            android:textSize="20sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="mCancel"/>
-
     </LinearLayout>
+
+
+    <Button
+        android:id="@+id/cancel_Button"
+        android:text="닫기"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#00ff0000"
+        android:onClick="mCancel"/>
+
+
 </LinearLayout>
