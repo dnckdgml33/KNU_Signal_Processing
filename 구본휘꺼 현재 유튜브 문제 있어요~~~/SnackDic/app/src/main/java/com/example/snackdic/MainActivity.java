@@ -71,6 +71,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // 랜덤뽑기 버튼 클릭시 액티비티 전환
+        Button pick_btn = (Button) findViewById(R.id.button_pick);
+        pick_btn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Toast.makeText(getApplicationContext(),"결제 성공 시 기프티콘 표시",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), randompickActivity.class);
+                startActivity(intent);
+            }
+        });
+
         // 커스텀 다이얼로그를 호출할 버튼을 정의한다.
         ImageButton question_btn = (ImageButton) findViewById(R.id.button_question);
 

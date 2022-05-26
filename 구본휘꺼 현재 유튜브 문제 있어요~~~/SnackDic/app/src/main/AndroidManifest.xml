@@ -51,6 +51,10 @@
             android:name=".emptyActivity">
         </activity>
 
+        <activity
+            android:name=".randompickActivity">
+        </activity>
+
         <activity android:name=".popupActivity"
             android:theme="@style/popupTheme" android:screenOrientation="portrait"></activity>
 
