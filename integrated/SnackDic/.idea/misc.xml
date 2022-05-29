@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/LG/Desktop/SnackDic/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/LG/Desktop/SnackDic/app/src/main/res/drawable/pretty_button.xml" value="0.1925" />
+        <entry key="..\:/Users/LG/Desktop/SnackDic/app/src/main/res/layout/activity_mbtires.xml" value="0.1" />
+        <entry key="..\:/Users/LG/Desktop/SnackDic/app/src/main/res/layout/activity_mbtires2.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/LG/Desktop/SnackDic/app/src/main/res/layout/activity_random.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/LG/Desktop/SnackDic/app/src/main/res/layout/activity_test.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/bonhw/AndroidStudioProjects/SnackDic/app/src/main/res/drawable-v24/custom_progress_bg.xml" value="0.1155" />
         <entry key="..\:/Users/bonhw/AndroidStudioProjects/SnackDic/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1095" />
         <entry key="..\:/Users/bonhw/AndroidStudioProjects/SnackDic/app/src/main/res/drawable-v24/list_allxml.xml" value="0.1095" />
