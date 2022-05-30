@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/aki_ques"
+        android:layout_width="245dp"
+        android:layout_height="61dp"/>
+
+    <LinearLayout
+        android:id="@+id/buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+        <Button
+            android:id="@+id/aki_ans1"
+            android:layout_width="250dp"
+            android:layout_height="90dp" />
+
+        <Button
+            android:id="@+id/aki_ans2"
+            android:layout_width="250dp"
+            android:layout_height="90dp" />
+
+        <Button
+            android:id="@+id/aki_ans3"
+            android:layout_width="250dp"
+            android:layout_height="90dp"/>
+
+        <Button
+            android:id="@+id/aki_ans4"
+            android:layout_width="250dp"
+            android:layout_height="90dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/aki_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1/10"/>
+
+    <Button
+        android:id="@+id/aki_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="다음"/>
+</LinearLayout>
