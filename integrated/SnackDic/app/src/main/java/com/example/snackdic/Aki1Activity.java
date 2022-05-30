@@ -3,6 +3,7 @@ package com.example.snackdic;
 import static com.example.snackdic.akiLibrary.akiScores;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,11 +11,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
 import com.example.snackdic.Snack;
 import com.example.snackdic.ExcelReader;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class Aki1Activity extends AppCompatActivity {
     public static final String SCORES="SCORES";
@@ -25,6 +32,7 @@ public class Aki1Activity extends AppCompatActivity {
     private int temp;//4
     private int taste;//5
     private int amount=0;
+    int mname;
 
     private TextView score;
     private Button mainButton;
@@ -37,21 +45,13 @@ public class Aki1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aki1);
 
-
         score=findViewById(R.id.score);
         mainButton=findViewById(R.id.aki_mainbutton);
         shopButton=findViewById(R.id.aki_shopbutton);
         picture=findViewById(R.id.aki_pic);
         akiname=findViewById(R.id.aki_name);
-
-        Toast.makeText(getApplicationContext(), "액티비티 전환됨", Toast.LENGTH_SHORT).show();
-
-
         int[] answerList=getIntent().getIntArrayExtra(SCORES);//답안 저장하는 배열
-
-
         money=answerList[0];
-
         people=answerList[1];
         how=answerList[2];
         temp=answerList[3];
@@ -72,11 +72,36 @@ public class Aki1Activity extends AppCompatActivity {
         });
         if(result!=null){
             akiname.setText(result.getName());
-            //picture.setImageResource(result.getUri());//이미지 처리
+            mname=result.getUri();
+            getImgfromFirebase();
         }
         else{
             akiname.setText("오류발생");
         }
 
     }
+    public void getImgfromFirebase(){
+        ImageView load;
+        String str1 = "snackimg/";
+        String to = Integer.toString(mname);
+        str1 = str1.concat(to);
+        str1 =  str1.concat(".jpg");
+
+        load = (ImageView)findViewById(R.id.aki_pic);
+        FirebaseStorage storage = FirebaseStorage.getInstance("gs://snackdic-ee898.appspot.com/");
+        StorageReference storageReference = storage.getReference();
+        storageReference.child(str1).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Glide.with(getApplicationContext()).load(uri).into(load);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getApplicationContext(),"fail",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
 }
+

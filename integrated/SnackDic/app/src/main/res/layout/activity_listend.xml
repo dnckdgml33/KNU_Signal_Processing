@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/backgroundimg">
 
     <com.google.android.youtube.player.YouTubePlayerView
         android:id="@+id/youTubePlayerView2"
@@ -30,7 +31,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:text="랜덤 간식"
+        android:text="간식"
+        android:textColor="#FFFFFF"
         android:textSize="30sp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -14,9 +14,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.example.snackdic.random.loadingDialog;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.youtube.player.YouTubeBaseActivity;
@@ -54,20 +54,10 @@ public class listEndActivity extends YouTubeBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listend);
 
-        loadingDialog loadingDialog = new loadingDialog(listEndActivity.this);
-
         buttonhome = findViewById(R.id.lbuttonhome);
         buttonpopup = findViewById(R.id.lbuttonpopup);
 
-        // 파이어베이스에서 불러오는 동안 로딩화면
-        loadingDialog.startLoadingDialog();
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                loadingDialog.dissmissDialog();
-            }
-        },3000);
+
 
         initPlayer();
         new Handler().postDelayed(new Runnable() {

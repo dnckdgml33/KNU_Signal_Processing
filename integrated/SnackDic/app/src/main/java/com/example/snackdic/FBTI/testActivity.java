@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.snackdic.MainActivity;
 import com.example.snackdic.R;
-import com.example.snackdic.randomActivity;
 
 public class testActivity extends AppCompatActivity {
 

@@ -1,17 +1,16 @@
-package com.example.snackdic;
+package com.example.snackdic.random;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.VideoView;
-import android.app.Activity;
-import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
-import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.snackdic.R;
 
 public class emptyActivity extends AppCompatActivity {
 
