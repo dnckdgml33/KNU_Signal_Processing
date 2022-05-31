@@ -10,6 +10,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.snackdic.FBTI.testActivity;
+import com.example.snackdic.akinator.akinatorActivity;
 import com.example.snackdic.random.randomActivity;
 import com.example.snackdic.random.randompickActivity;
 

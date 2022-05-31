@@ -1,4 +1,4 @@
-package com.example.snackdic;
+package com.example.snackdic.akinator;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.snackdic.R;
 
 public class akinatorActivity extends AppCompatActivity {
     private TextView akiQues;
@@ -44,7 +46,7 @@ public class akinatorActivity extends AppCompatActivity {
                     return;
                 }
                 current++;
-                if(current>=akiLibrary.END){
+                if(current>= akiLibrary.END){
                     Intent intent = new Intent(getApplicationContext(), Aki1Activity.class);
                     intent.putExtra(Aki1Activity.SCORES,answerList);
                     startActivity(intent);
@@ -81,6 +83,7 @@ public class akinatorActivity extends AppCompatActivity {
 
 
     }
+    @SuppressLint("SetTextI18n")
     private void update(){
         akiQues.setText(akiLibrary.akiQuestion[current]);
         akiAns1.setText(akiLibrary.akiAnswer[current][0]);
@@ -91,6 +94,7 @@ public class akinatorActivity extends AppCompatActivity {
         for(int i=0; i<buttons.getChildCount();i++){
             buttons.getChildAt(i).setBackgroundColor(getApplicationContext().getResources().getColor(R.color.purple_500));
         }
+        akiProgress.setText(current+1+"/10");
     }//다음버튼을 눌렀을때실행됨
     private void selectAnswer(View view,int num){
         ViewGroup parent= (ViewGroup) view.getParent();

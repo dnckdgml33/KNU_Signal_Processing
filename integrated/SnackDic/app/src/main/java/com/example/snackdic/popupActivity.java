@@ -40,15 +40,30 @@ public class popupActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 0);
         }
 
-        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        Location loc_cur = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
 
-/*
-        double cur_lat = loc_cur.getLatitude(); // 위도
-        double cur_lon = loc_cur.getLongitude(); // 경도
+        // 권한 있으면
+        if(permissionCheck == PackageManager.PERMISSION_GRANTED){ //위치 권한 확인
+            LocationManager locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+            Location loc_cur = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
-        Toast.makeText(getApplicationContext(), Double.toString(cur_lat),Toast.LENGTH_SHORT).show();
-*/
+            if(loc_cur != null){
+                double cur_lat = loc_cur.getLatitude(); // 위도
+                double cur_lon = loc_cur.getLongitude(); // 경도
+
+                Toast.makeText(getApplicationContext(), Double.toString(cur_lat),Toast.LENGTH_SHORT).show();
+            }
+            else{
+                loc_cur = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+                double cur_lat = loc_cur.getLatitude(); // 위도
+                double cur_lon = loc_cur.getLongitude(); // 경도
+
+                Toast.makeText(getApplicationContext(), Double.toString(cur_lat),Toast.LENGTH_SHORT).show();
+            }
+        }
+        else{
+            Toast.makeText(getApplicationContext(), "위치 권한을 허용해 주세요",Toast.LENGTH_SHORT).show();
+        }
 
         // 상태바 제거
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,

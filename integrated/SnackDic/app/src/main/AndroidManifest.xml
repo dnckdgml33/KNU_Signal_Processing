@@ -56,7 +56,7 @@
         </activity>
 
         <activity
-            android:name=".akinatorActivity">
+            android:name=".akinator.akinatorActivity">
         </activity>
 
         <activity
@@ -80,7 +80,7 @@
         </activity>
 
         <activity
-            android:name=".Aki1Activity">
+            android:name=".akinator.Aki1Activity">
         </activity>
 
         <activity android:name=".popupActivity"
