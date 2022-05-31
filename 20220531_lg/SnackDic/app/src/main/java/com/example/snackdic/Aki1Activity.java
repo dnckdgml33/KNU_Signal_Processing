@@ -1,6 +1,6 @@
-package com.example.snackdic.akinator;
+package com.example.snackdic;
 
-import static com.example.snackdic.akinator.akiLibrary.akiScores;
+import static com.example.snackdic.akiLibrary.akiScores;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -16,9 +16,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
-import com.example.snackdic.MainActivity;
-import com.example.snackdic.R;
-import com.example.snackdic.popupActivity;
+import com.example.snackdic.Snack;
+import com.example.snackdic.ExcelReader;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
@@ -26,30 +25,41 @@ import com.google.firebase.storage.StorageReference;
 
 public class Aki1Activity extends AppCompatActivity {
     public static final String SCORES="SCORES";
+    private int money;//1
+    private int people;//2
     private int cost;
+    private int how;//3
+    private int temp;//4
+    private int taste;//5
     private int amount=0;
-    int mname;
+    int mname=0;
+
+    private TextView score;
+    private Button mainButton;
+    private Button shopButton;
+    private ImageView picture;
+    private TextView akiname;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aki1);
 
-        TextView score = findViewById(R.id.score);
-        Button mainButton = findViewById(R.id.aki_mainbutton);
-        Button shopButton = findViewById(R.id.aki_shopbutton);
-        ImageView picture = findViewById(R.id.aki_pic);
-        TextView akiname = findViewById(R.id.aki_name);
+        score=findViewById(R.id.score);
+        mainButton=findViewById(R.id.aki_mainbutton);
+        shopButton=findViewById(R.id.aki_shopbutton);
+        picture=findViewById(R.id.aki_pic);
+        akiname=findViewById(R.id.aki_name);
         int[] answerList=getIntent().getIntArrayExtra(SCORES);//답안 저장하는 배열
-        int money = answerList[0];
-        int people = answerList[1];
-        int how = answerList[2];
-        int temp = answerList[3];
-        int taste = answerList[4];
+        money=answerList[0];
+        people=answerList[1];
+        how=answerList[2];
+        temp=answerList[3];
+        taste=answerList[4];
         for(int i=0;i<akiScores.length;i++) {
             amount+=akiScores[i][answerList[i+5]-1];
         }//양 계산
-        Snack result= ExcelReader.readFromExcel(this, money, how, temp, taste,amount);//계산한 값을 가져옴
+        Snack result= ExcelReader.readFromExcel(this,money,how,temp,taste,amount);//계산한 값을 가져옴
 
 
         score.setText(amount+"");//점수
@@ -60,37 +70,20 @@ public class Aki1Activity extends AppCompatActivity {
                 startActivity(intent);
             }//메인화면으로 전환
         });
-
         if(result!=null){
             akiname.setText(result.getName());
             mname=result.getUri();
             getImgfromFirebase();
-
         }
         else{
-            Toast.makeText(Aki1Activity.this, "존재하지 않는 간식입니다", Toast.LENGTH_SHORT).show();//답변 미선택시 팝업
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);
-            return;
+            akiname.setText("오류발생");
         }
-
-        shopButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                // 간식 이름 클립보드 복사 위해 popupActivity로 전달
-                Intent intent = new Intent(Aki1Activity.this, popupActivity.class);
-                intent.putExtra("snack_name",result.getName());
-                startActivity(intent);
-
-            }
-        });
 
     }
     public void getImgfromFirebase(){
         ImageView load;
         String str1 = "snackimg/";
-        String to = Integer.toString(mname-1);
+        String to = Integer.toString(mname);
         str1 = str1.concat(to);
         str1 =  str1.concat(".jpg");
 

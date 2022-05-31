@@ -27,8 +27,6 @@ import java.util.List;
 public class popupActivity extends AppCompatActivity {
 
     Button near, appconnect, cancel;
-    double cur_lat;
-    double cur_lon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,15 +40,30 @@ public class popupActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 0);
         }
 
-        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        Location loc_cur = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
 
+        // 권한 있으면
+        if(permissionCheck == PackageManager.PERMISSION_GRANTED){ //위치 권한 확인
+            LocationManager locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+            Location loc_cur = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
-/*        double cur_lat = loc_cur.getLatitude(); // 위도
-        double cur_lon = loc_cur.getLongitude(); // 경도
+            if(loc_cur != null){
+                double cur_lat = loc_cur.getLatitude(); // 위도
+                double cur_lon = loc_cur.getLongitude(); // 경도
 
-        Toast.makeText(getApplicationContext(), Double.toString(cur_lat),Toast.LENGTH_SHORT).show();
-*/
+                Toast.makeText(getApplicationContext(), Double.toString(cur_lat),Toast.LENGTH_SHORT).show();
+            }
+            else{
+                loc_cur = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+                double cur_lat = loc_cur.getLatitude(); // 위도
+                double cur_lon = loc_cur.getLongitude(); // 경도
+
+                Toast.makeText(getApplicationContext(), Double.toString(cur_lat),Toast.LENGTH_SHORT).show();
+            }
+        }
+        else{
+            Toast.makeText(getApplicationContext(), "위치 권한을 허용해 주세요",Toast.LENGTH_SHORT).show();
+        }
 
         // 상태바 제거
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -66,14 +79,9 @@ public class popupActivity extends AppCompatActivity {
 
     // 주변보기 버튼 클릭
     public void mNear(View v){
-        Intent intentword = getIntent();
-        String snack_name = intentword.getStringExtra("snack_name");
-
         String PACKAGE_NAME_kakaomap = "net.daum.android.map";
         String PACKAGE_NAME_navermap = "com.nhn.android.nmap";
-        String naver_first="nmap://search?query=";
-        String naver_last="&appname=com.example.snackdic";
-        String web="https://map.naver.com/v5/search/";
+
         PackageManager pm = getPackageManager();
         if (isPackageInstalled(PACKAGE_NAME_kakaomap, pm)) { // 카카오맵 설치되어 있으면
             // URL Scheme 활용 가게 검색
@@ -83,14 +91,14 @@ public class popupActivity extends AppCompatActivity {
         }
         else if (isPackageInstalled(PACKAGE_NAME_navermap, pm)) { // 네이버지도 설치되어 있으면
             // URL Scheme 활용 가게 검색
-            String url = naver_first+snack_name+naver_first;
+            String url = "nmap://search?query=제육볶음&appname=com.example.snackdic";
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
             startActivity(intent);
         }
         else { // 둘 다 설치되어 있지 않으면
             // 네이버 지도 웹버전으로 검색
             Intent intent = new Intent(Intent.ACTION_VIEW);
-            Uri uri = Uri.parse(web+snack_name); // 링크
+            Uri uri = Uri.parse("https://map.naver.com/v5/search/제육볶음"); // 링크
             intent.setData(uri);
             startActivity(intent);
         }

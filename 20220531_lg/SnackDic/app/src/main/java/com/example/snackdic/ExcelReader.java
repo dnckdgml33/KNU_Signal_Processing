@@ -1,4 +1,4 @@
-package com.example.snackdic.akinator;
+package com.example.snackdic;
 
 import android.content.Context;
 
@@ -12,7 +12,7 @@ import jxl.read.biff.BiffException;
 
 public class ExcelReader {
     int row;
-    public static Snack readFromExcel(Context context, int money, int how, int temp, int taste, int amount) {
+    public static Snack readFromExcel(Context context,int money,int how,int temp,int taste,int amount) {
         ArrayList<Snack> snacks=new ArrayList<Snack>();
 
         try {
@@ -37,36 +37,35 @@ public class ExcelReader {
                         int ntaste = Integer.parseInt(sheet.getCell(10, row).getContents());
                         int namount = Integer.parseInt(sheet.getCell(9, row).getContents());
 
-                        if(ncost<=money&&namount<=amount){
-                            if(temp==4||temp==ntemp) {
-                                if (taste == 4 || taste == ntaste) {
-                                    if(how==4){
-                                        snacks.add(new Snack(name,nuri));
-                                    }
-                                    else if(how==nhow){
+                        if(ncost<=money&&namount<=amount&&nhow==how){
+                            if(temp==4){
+                                if(taste==4){
+                                    snacks.add(new Snack(name,nuri));
+                                }
+                            }
+                            else{
+                                if(ntemp==temp){
+                                    if(taste==4){
                                         snacks.add(new Snack(name,nuri));
                                     }
                                     else{
-                                        continue;
+                                        if(ntaste==taste){
+                                            snacks.add(new Snack(name,nuri));
+                                        }
                                     }
                                 }
+
                             }
                         }
+
+
 
                     }
                 }
             }
-
             int lent=snacks.size();
-            if(lent==0){
-                return null;
-            }
-            else {
-                int num = (int) (Math.random() * (lent));
-                return snacks.get(num-1);
-
-
-            }
+            int num= (int) (Math.random() * (lent-1));
+            return snacks.get(num);
         }
         catch (IOException | BiffException e) {
             e.printStackTrace();
