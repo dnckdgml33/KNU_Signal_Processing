@@ -1,4 +1,4 @@
-package com.example.snackdic;
+package com.example.snackdic.akinator;
 
 public class Snack {
     private String name="";

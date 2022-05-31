@@ -1,8 +1,10 @@
-package com.example.snackdic;
+package com.example.snackdic.random;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.view.LayoutInflater;
+
+import com.example.snackdic.R;
 
 public class loadingDialog {
 

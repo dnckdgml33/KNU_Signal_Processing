@@ -1,8 +1,5 @@
-package com.example.snackdic;
+package com.example.snackdic.random;
 
-import android.content.ClipData;
-import android.content.ClipboardManager;
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.net.Uri;
@@ -25,6 +22,9 @@ import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
+import com.example.snackdic.MainActivity;
+import com.example.snackdic.R;
+import com.example.snackdic.popupActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.youtube.player.YouTubeBaseActivity;
@@ -114,7 +114,7 @@ public class randomActivity extends YouTubeBaseActivity {
             public void onClick(View view) {
 
                 // 간식 이름 클립보드 복사 위해 popupActivity로 전달
-                Intent intent = new Intent(randomActivity.this,popupActivity.class);
+                Intent intent = new Intent(randomActivity.this, popupActivity.class);
                 intent.putExtra("snack_name",snackname);
                 startActivity(intent);
             }
