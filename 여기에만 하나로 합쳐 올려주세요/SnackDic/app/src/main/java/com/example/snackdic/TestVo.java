@@ -1,14 +1,14 @@
 package com.example.snackdic;
 
 public class TestVo {
-    private String id;
+    private int id;
     private String content;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -21,7 +21,7 @@ public class TestVo {
     }
 
     //제너레이트 기능을 사용하여 생성자를 생성하면 편리하다.
-    public TestVo(String id, String content) {
+    public TestVo(int id, String content) {
         this.id = id;
         this.content = content;
     }

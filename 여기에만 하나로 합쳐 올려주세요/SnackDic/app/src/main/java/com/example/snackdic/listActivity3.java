@@ -21,10 +21,10 @@ import jxl.read.biff.BiffException;
 public class listActivity3 extends AppCompatActivity {
     private Intent intent; //인텐트 선언
     String mname;
-    private ArrayList<TestVo2> mArrayList;
+    private ArrayList<TestVo> mArrayList;
 
     // 어댑터 선언
-    private TestRecyclerViewAdapter4 mAdapter;
+    private TestRecyclerViewAdapter mAdapter;
     int dataCount = -1;
 
     @Override
@@ -46,14 +46,14 @@ public class listActivity3 extends AppCompatActivity {
         //mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)) ;
 
         // 리사이클러뷰에 뿌려줄 데이터를 담을 ArrayList를 초기화
-        mArrayList = new ArrayList<TestVo2>();
+        mArrayList = new ArrayList<TestVo>();
 
         // 데이터 읽어 옴
         readFromExcel();
         readFromTxt();
 
         // 어댑터에 리스트에 뿌려줄 ArrayList를 적용.
-        mAdapter = new TestRecyclerViewAdapter4(mArrayList);
+        mAdapter = new TestRecyclerViewAdapter(mArrayList);
         mRecyclerView.setAdapter(mAdapter);
 
         // notifyDataSetChanged를 호출하여 adapter의 값이 변경되었다는 것을 알려준다.
@@ -91,7 +91,7 @@ public class listActivity3 extends AppCompatActivity {
                             if(col==3 && contents.equals(tmp)==false) // 간식 리스트
                             {
                                 tmp = contents;
-                                mArrayList.add(new TestVo2(contents));
+                                mArrayList.add(new TestVo(row, contents));
                             }
                         }
                         Log.i("test", sb.toString());
