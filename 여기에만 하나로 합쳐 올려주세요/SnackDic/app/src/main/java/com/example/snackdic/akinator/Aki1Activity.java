@@ -49,7 +49,7 @@ public class Aki1Activity extends AppCompatActivity {
         for(int i=0;i<akiScores.length;i++) {
             amount+=akiScores[i][answerList[i+5]-1];
         }//양 계산
-        Snack result= ExcelReader.readFromExcel(this, money, how, temp, taste,amount);//계산한 값을 가져옴
+        Snack result= ExcelReader.readFromExcel(this, money, how, temp, taste,amount,people);//계산한 값을 가져옴
 
 
         score.setText(amount+"");//점수

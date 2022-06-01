@@ -12,9 +12,14 @@ import jxl.read.biff.BiffException;
 
 public class ExcelReader {
     int row;
-    public static Snack readFromExcel(Context context, int money, int how, int temp, int taste, int amount) {
+    public static Snack readFromExcel(Context context, int money, int how, int temp, int taste, int amount, int people) {
         ArrayList<Snack> snacks=new ArrayList<Snack>();
-
+        if (money*people<=4){
+            money=money*people;
+        }
+        else if(money*people>4){
+            money=4;
+        }
         try {
             InputStream is = context.getResources().getAssets().open("snack_list_bytab1.xls");
             Workbook wb = Workbook.getWorkbook(is);
@@ -63,7 +68,7 @@ public class ExcelReader {
             }
             else {
                 int num = (int) (Math.random() * (lent));
-                return snacks.get(num-1);
+                return snacks.get(num);
 
 
             }
