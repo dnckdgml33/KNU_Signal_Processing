@@ -22,7 +22,7 @@ public class listActivity2 extends AppCompatActivity {
 
     private Intent intent; //인텐트 선언
     String mname;
-    private ArrayList<TestVo2> mArrayList;
+    private ArrayList<TestVo> mArrayList;
 
     // 어댑터 선언
     private TestRecyclerViewAdapter3 mAdapter;
@@ -47,7 +47,7 @@ public class listActivity2 extends AppCompatActivity {
         //mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)) ;
 
         // 리사이클러뷰에 뿌려줄 데이터를 담을 ArrayList를 초기화
-        mArrayList = new ArrayList<TestVo2>();
+        mArrayList = new ArrayList<TestVo>();
 
         // 데이터 읽어 옴
         readFromExcel();
@@ -92,7 +92,7 @@ public class listActivity2 extends AppCompatActivity {
                             if(col==2 && contents.equals(tmp)==false) // 소분류
                             {
                                 tmp = contents;
-                                mArrayList.add(new TestVo2(contents));
+                                mArrayList.add(new TestVo(row, contents));
                             }
                         }
                         Log.i("test", sb.toString());

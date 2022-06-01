@@ -24,7 +24,7 @@ public class listActivity3 extends AppCompatActivity {
     private ArrayList<TestVo> mArrayList;
 
     // 어댑터 선언
-    private TestRecyclerViewAdapter mAdapter;
+    private TestRecyclerViewAdapter4 mAdapter;
     int dataCount = -1;
 
     @Override
@@ -53,7 +53,7 @@ public class listActivity3 extends AppCompatActivity {
         readFromTxt();
 
         // 어댑터에 리스트에 뿌려줄 ArrayList를 적용.
-        mAdapter = new TestRecyclerViewAdapter(mArrayList);
+        mAdapter = new TestRecyclerViewAdapter4(mArrayList);
         mRecyclerView.setAdapter(mAdapter);
 
         // notifyDataSetChanged를 호출하여 adapter의 값이 변경되었다는 것을 알려준다.

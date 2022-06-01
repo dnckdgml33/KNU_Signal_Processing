@@ -21,7 +21,7 @@ import jxl.read.biff.BiffException;
 
 public class listActivity extends AppCompatActivity {
 
-    private ArrayList<TestVo2> mArrayList;
+    private ArrayList<TestVo> mArrayList;
 
     // 어댑터 선언
     private TestRecyclerViewAdapter2 mAdapter;
@@ -46,7 +46,7 @@ public class listActivity extends AppCompatActivity {
         //mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)) ;
 
         // 리사이클러뷰에 뿌려줄 데이터를 담을 ArrayList를 초기화
-        mArrayList = new ArrayList<TestVo2>();
+        mArrayList = new ArrayList<TestVo>();
 
         // 데이터 읽어 옴
         readFromExcel();
@@ -94,7 +94,7 @@ public class listActivity extends AppCompatActivity {
                             if(col==1 && contents.equals(tmp)==false) // 대분류(ex. 패스트푸드, 분식, ...)
                             {
                                 tmp = contents;
-                                mArrayList.add(new TestVo2(contents));
+                                mArrayList.add(new TestVo(row, contents));
                             }
                         }
                         Log.i("test", sb.toString());
