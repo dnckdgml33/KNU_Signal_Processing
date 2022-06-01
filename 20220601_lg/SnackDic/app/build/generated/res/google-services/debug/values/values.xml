@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">864306494754-fql5n7uq8f3r432v2m55knlh5i8r0eo1.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">864306494754</string>
+    <string name="google_api_key" translatable="false">AIzaSyBlMg1E00MmwPs0FHmHfCQEoa16RD2qhjs</string>
+    <string name="google_app_id" translatable="false">1:864306494754:android:90f2c7d1a57cbcca63b97b</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBlMg1E00MmwPs0FHmHfCQEoa16RD2qhjs</string>
+    <string name="google_storage_bucket" translatable="false">snackdic-ee898.appspot.com</string>
+    <string name="project_id" translatable="false">snackdic-ee898</string>
+</resources>

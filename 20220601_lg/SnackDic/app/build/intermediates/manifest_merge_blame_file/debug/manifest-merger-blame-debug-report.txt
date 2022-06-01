@@ -1,0 +1,203 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.snackdic"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="32" />
+9-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml
+10
+11    <queries>
+11-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:5:5-12:15
+12        <package android:name="com.sampleapp" />
+12-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:6:9-7:44
+12-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:7:13-41
+13        <package android:name="com.com.nhn.android.nmap" />
+13-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:8:9-9:55
+13-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:9:13-52
+14        <package android:name="net.daum.android.map" />
+14-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:10:9-11:51
+14-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:11:13-48
+15    </queries>
+16
+17    <uses-permission android:name="android.permission.INTERNET" />
+17-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:14:5-15:54
+17-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:15:9-51
+18    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+18-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:16:5-17:68
+18-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:17:9-65
+19    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+19-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:18:5-19:66
+19-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:19:9-63
+20
+21    <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
+22    <!-- <uses-sdk android:minSdkVersion="14"/> -->
+23    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+23-->[com.google.firebase:firebase-storage:20.0.1] C:\Users\g\.gradle\caches\transforms-3\781cfed6792636743c0f7fc15107d7ec\transformed\firebase-storage-20.0.1\AndroidManifest.xml:26:5-79
+23-->[com.google.firebase:firebase-storage:20.0.1] C:\Users\g\.gradle\caches\transforms-3\781cfed6792636743c0f7fc15107d7ec\transformed\firebase-storage-20.0.1\AndroidManifest.xml:26:22-76
+24
+25    <application
+25-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:21:5-90:19
+26        android:allowBackup="true"
+26-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:22:9-35
+27        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+27-->[androidx.core:core:1.7.0] C:\Users\g\.gradle\caches\transforms-3\fb9aa2ab3966fe894c67bd9003ea76a4\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
+28        android:debuggable="true"
+29        android:icon="@mipmap/chicken"
+29-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:23:9-39
+30        android:label="@string/app_name"
+30-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:24:9-41
+31        android:roundIcon="@mipmap/chicken"
+31-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:25:9-44
+32        android:supportsRtl="true"
+32-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:26:9-35
+33        android:testOnly="true"
+34        android:theme="@style/Theme.SnackDic" >
+34-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:27:9-46
+35        <activity
+35-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:28:9-36:20
+36            android:name="com.example.snackdic.MainActivity"
+36-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:29:13-41
+37            android:exported="true" >
+37-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:30:13-36
+38            <intent-filter>
+38-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:31:13-35:29
+39                <action android:name="android.intent.action.MAIN" />
+39-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:32:17-69
+39-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:32:25-66
+40
+41                <category android:name="android.intent.category.LAUNCHER" />
+41-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:34:17-77
+41-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:34:27-74
+42            </intent-filter>
+43        </activity>
+44        <activity android:name="com.example.snackdic.listActivity" >
+44-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:38:9-40:20
+44-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:39:13-41
+45        </activity>
+46        <activity android:name="com.example.snackdic.listActivity2" >
+46-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:42:9-44:20
+46-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:43:13-42
+47        </activity>
+48        <activity android:name="com.example.snackdic.listActivity3" >
+48-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:46:9-48:20
+48-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:47:13-42
+49        </activity>
+50        <activity android:name="com.example.snackdic.listEndActivity" >
+50-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:50:9-52:20
+50-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:51:13-44
+51        </activity>
+52        <activity android:name="com.example.snackdic.random.randomActivity" >
+52-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:54:9-56:20
+52-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:55:13-50
+53        </activity>
+54        <activity android:name="com.example.snackdic.akinator.akinatorActivity" >
+54-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:58:9-60:20
+54-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:59:13-54
+55        </activity>
+56        <activity android:name="com.example.snackdic.FBTI.testActivity" >
+56-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:62:9-64:20
+56-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:63:13-46
+57        </activity>
+58        <activity android:name="com.example.snackdic.random.emptyActivity" >
+58-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:66:9-68:20
+58-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:67:13-49
+59        </activity>
+60        <activity android:name="com.example.snackdic.random.randompickActivity" >
+60-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:70:9-72:20
+60-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:71:13-54
+61        </activity>
+62        <activity android:name="com.example.snackdic.FBTI.MBTIRes" >
+62-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:74:9-76:20
+62-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:75:13-41
+63        </activity>
+64        <activity android:name="com.example.snackdic.FBTI.MBTIRes2" >
+64-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:78:9-80:20
+64-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:79:13-42
+65        </activity>
+66        <activity android:name="com.example.snackdic.akinator.Aki1Activity" >
+66-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:82:9-84:20
+66-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:83:13-50
+67        </activity>
+68        <activity
+68-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:86:9-88:20
+69            android:name="com.example.snackdic.popupActivity"
+69-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:86:19-48
+70            android:screenOrientation="portrait"
+70-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:87:47-83
+71            android:theme="@style/popupTheme" >
+71-->C:\Users\g\AndroidStudioProjects\integrated\SnackDic\app\src\main\AndroidManifest.xml:87:13-46
+72        </activity>
+73
+74        <service
+74-->[com.google.firebase:firebase-storage:20.0.1] C:\Users\g\.gradle\caches\transforms-3\781cfed6792636743c0f7fc15107d7ec\transformed\firebase-storage-20.0.1\AndroidManifest.xml:30:9-36:19
+75            android:name="com.google.firebase.components.ComponentDiscoveryService"
+75-->[com.google.firebase:firebase-storage:20.0.1] C:\Users\g\.gradle\caches\transforms-3\781cfed6792636743c0f7fc15107d7ec\transformed\firebase-storage-20.0.1\AndroidManifest.xml:31:13-84
+76            android:directBootAware="true"
+76-->[com.google.firebase:firebase-common:20.1.1] C:\Users\g\.gradle\caches\transforms-3\4831fb6c8465cb75e86d1c27b468b37c\transformed\firebase-common-20.1.1\AndroidManifest.xml:35:13-43
+77            android:exported="false" >
+77-->[com.google.firebase:firebase-storage:20.0.1] C:\Users\g\.gradle\caches\transforms-3\781cfed6792636743c0f7fc15107d7ec\transformed\firebase-storage-20.0.1\AndroidManifest.xml:32:13-37
+78            <meta-data
+78-->[com.google.firebase:firebase-storage:20.0.1] C:\Users\g\.gradle\caches\transforms-3\781cfed6792636743c0f7fc15107d7ec\transformed\firebase-storage-20.0.1\AndroidManifest.xml:33:13-35:85
+79                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
+79-->[com.google.firebase:firebase-storage:20.0.1] C:\Users\g\.gradle\caches\transforms-3\781cfed6792636743c0f7fc15107d7ec\transformed\firebase-storage-20.0.1\AndroidManifest.xml:34:17-107
+80                android:value="com.google.firebase.components.ComponentRegistrar" />
+80-->[com.google.firebase:firebase-storage:20.0.1] C:\Users\g\.gradle\caches\transforms-3\781cfed6792636743c0f7fc15107d7ec\transformed\firebase-storage-20.0.1\AndroidManifest.xml:35:17-82
+81        </service>
+82
+83        <provider
+83-->[com.google.firebase:firebase-common:20.1.1] C:\Users\g\.gradle\caches\transforms-3\4831fb6c8465cb75e86d1c27b468b37c\transformed\firebase-common-20.1.1\AndroidManifest.xml:26:9-31:39
+84            android:name="com.google.firebase.provider.FirebaseInitProvider"
+84-->[com.google.firebase:firebase-common:20.1.1] C:\Users\g\.gradle\caches\transforms-3\4831fb6c8465cb75e86d1c27b468b37c\transformed\firebase-common-20.1.1\AndroidManifest.xml:27:13-77
+85            android:authorities="com.example.snackdic.firebaseinitprovider"
+85-->[com.google.firebase:firebase-common:20.1.1] C:\Users\g\.gradle\caches\transforms-3\4831fb6c8465cb75e86d1c27b468b37c\transformed\firebase-common-20.1.1\AndroidManifest.xml:28:13-72
+86            android:directBootAware="true"
+86-->[com.google.firebase:firebase-common:20.1.1] C:\Users\g\.gradle\caches\transforms-3\4831fb6c8465cb75e86d1c27b468b37c\transformed\firebase-common-20.1.1\AndroidManifest.xml:29:13-43
+87            android:exported="false"
+87-->[com.google.firebase:firebase-common:20.1.1] C:\Users\g\.gradle\caches\transforms-3\4831fb6c8465cb75e86d1c27b468b37c\transformed\firebase-common-20.1.1\AndroidManifest.xml:30:13-37
+88            android:initOrder="100" />
+88-->[com.google.firebase:firebase-common:20.1.1] C:\Users\g\.gradle\caches\transforms-3\4831fb6c8465cb75e86d1c27b468b37c\transformed\firebase-common-20.1.1\AndroidManifest.xml:31:13-36
+89
+90        <activity
+90-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\g\.gradle\caches\transforms-3\13817dd7ba3be49b3c4499da839bb44c\transformed\play-services-base-18.0.1\AndroidManifest.xml:20:9-22:45
+91            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+91-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\g\.gradle\caches\transforms-3\13817dd7ba3be49b3c4499da839bb44c\transformed\play-services-base-18.0.1\AndroidManifest.xml:20:19-85
+92            android:exported="false"
+92-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\g\.gradle\caches\transforms-3\13817dd7ba3be49b3c4499da839bb44c\transformed\play-services-base-18.0.1\AndroidManifest.xml:22:19-43
+93            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+93-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\g\.gradle\caches\transforms-3\13817dd7ba3be49b3c4499da839bb44c\transformed\play-services-base-18.0.1\AndroidManifest.xml:21:19-78
+94
+95        <meta-data
+95-->[com.google.android.gms:play-services-basement:18.0.0] C:\Users\g\.gradle\caches\transforms-3\0535a9878a0bb96f02aebd3a395af8f1\transformed\play-services-basement-18.0.0\AndroidManifest.xml:21:9-23:69
+96            android:name="com.google.android.gms.version"
+96-->[com.google.android.gms:play-services-basement:18.0.0] C:\Users\g\.gradle\caches\transforms-3\0535a9878a0bb96f02aebd3a395af8f1\transformed\play-services-basement-18.0.0\AndroidManifest.xml:22:13-58
+97            android:value="@integer/google_play_services_version" />
+97-->[com.google.android.gms:play-services-basement:18.0.0] C:\Users\g\.gradle\caches\transforms-3\0535a9878a0bb96f02aebd3a395af8f1\transformed\play-services-basement-18.0.0\AndroidManifest.xml:23:13-66
+98
+99        <provider
+99-->[androidx.emoji2:emoji2:1.0.0] C:\Users\g\.gradle\caches\transforms-3\3ae9d467fbc216659fb26f1b58a01a40\transformed\emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+100            android:name="androidx.startup.InitializationProvider"
+100-->[androidx.emoji2:emoji2:1.0.0] C:\Users\g\.gradle\caches\transforms-3\3ae9d467fbc216659fb26f1b58a01a40\transformed\emoji2-1.0.0\AndroidManifest.xml:27:13-67
+101            android:authorities="com.example.snackdic.androidx-startup"
+101-->[androidx.emoji2:emoji2:1.0.0] C:\Users\g\.gradle\caches\transforms-3\3ae9d467fbc216659fb26f1b58a01a40\transformed\emoji2-1.0.0\AndroidManifest.xml:28:13-68
+102            android:exported="false" >
+102-->[androidx.emoji2:emoji2:1.0.0] C:\Users\g\.gradle\caches\transforms-3\3ae9d467fbc216659fb26f1b58a01a40\transformed\emoji2-1.0.0\AndroidManifest.xml:29:13-37
+103            <meta-data
+103-->[androidx.emoji2:emoji2:1.0.0] C:\Users\g\.gradle\caches\transforms-3\3ae9d467fbc216659fb26f1b58a01a40\transformed\emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+104                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+104-->[androidx.emoji2:emoji2:1.0.0] C:\Users\g\.gradle\caches\transforms-3\3ae9d467fbc216659fb26f1b58a01a40\transformed\emoji2-1.0.0\AndroidManifest.xml:32:17-75
+105                android:value="androidx.startup" />
+105-->[androidx.emoji2:emoji2:1.0.0] C:\Users\g\.gradle\caches\transforms-3\3ae9d467fbc216659fb26f1b58a01a40\transformed\emoji2-1.0.0\AndroidManifest.xml:33:17-49
+106            <meta-data
+106-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\g\.gradle\caches\transforms-3\7df73e1c3feaa1a64047bde90ae8eb17\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
+107                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+107-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\g\.gradle\caches\transforms-3\7df73e1c3feaa1a64047bde90ae8eb17\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+108                android:value="androidx.startup" />
+108-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\g\.gradle\caches\transforms-3\7df73e1c3feaa1a64047bde90ae8eb17\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
+109        </provider>
+110    </application>
+111
+112</manifest>
