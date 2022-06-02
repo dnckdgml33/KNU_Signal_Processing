@@ -24,7 +24,7 @@ public class akinatorActivity extends AppCompatActivity {
     private TextView akiProgress;
     private Button akiNext;
     private int current=0;
-    private int[] answerList=new int[10];
+    private int[] answerList=new int[11];
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
