@@ -90,6 +90,19 @@ public class TestRecyclerViewAdapter4 extends RecyclerView.Adapter<TestRecyclerV
 
             }
         });
+
+        viewholder.load.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String mname =mList.get(position).getContent();
+
+                intent = new Intent(v.getContext(), listEndActivity.class);
+                intent.putExtra("mname", mname);
+                v.getContext().startActivity(intent);
+                Toast.makeText(v.getContext(), mname, Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 
 
