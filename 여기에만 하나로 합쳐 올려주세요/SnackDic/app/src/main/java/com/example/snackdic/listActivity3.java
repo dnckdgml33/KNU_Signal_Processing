@@ -7,6 +7,7 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -35,8 +36,10 @@ public class listActivity3 extends AppCompatActivity {
         RecyclerView mRecyclerView = findViewById(R.id.recycler_view);
 
         // 리사이클러뷰에 LinearLayoutManager 지정(vertical)
-        LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLinearLayoutManager);
+         /* LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLinearLayoutManager);*/
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2);
+        mRecyclerView.setLayoutManager(gridLayoutManager);
         //mRecyclerView.setHasFixedSize(true);
         //setHasFixedSize(true) 메서드는 리사이클러뷰 안 아이템들의 크기를 가변적으로 적용할지, 일정한 고정 크기를 적용할지를 지정한다.
         //만약 false값으로 적용하면 매번 아이템들의 크기를 계산해야 하므로 성능 저하가 발생할 수 있다.

@@ -34,6 +34,8 @@ dependencies {
     // Glide 사용 위해
     implementation fileTree(dir: "libs",includes: ["*.jar"])
     implementation 'com.github.bumptech.glide:glide:4.11.0'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.google.firebase:firebase-storage:20.0.1'
     implementation files('"C:/Users/g/AndroidStudioProjects/KNU_Signal_Processing-main (2)/KNU_Signal_Processing-main/integrated/SnackDic/app/libsYouTubeAndroidPlayerApi.jar"')
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'

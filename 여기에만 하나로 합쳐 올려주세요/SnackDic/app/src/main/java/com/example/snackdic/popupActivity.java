@@ -62,7 +62,7 @@ public class popupActivity extends AppCompatActivity {
             }
         }
         else{
-            Toast.makeText(getApplicationContext(), "위치 권한을 허용해 주세요",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "위치 권한을 허용해 주세요",Toast.LENGTH_LONG).show();
         }
 
         // 상태바 제거
