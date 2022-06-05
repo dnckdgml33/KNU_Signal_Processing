@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -120,8 +121,6 @@ public class randomActivity extends YouTubeBaseActivity {
             }
         });
 
-        
-
         getImgfromFirebase();
         readFromExcel();
         readFromTxt();
@@ -227,6 +226,7 @@ public class randomActivity extends YouTubeBaseActivity {
         String to = Integer.toString(random);
         str1 = str1.concat(to);
         str1 =  str1.concat(".jpg");
+
 
         load = (ImageView)findViewById(R.id.rimageView);
         FirebaseStorage storage = FirebaseStorage.getInstance("gs://snackdic-ee898.appspot.com/");

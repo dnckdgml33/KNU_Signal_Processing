@@ -11,105 +11,144 @@
     app:cardPreventCornerOverlap="true"
     app:cardUseCompatPadding="true">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="6dp"
-        android:layout_marginBottom="20dp">
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="100px"
-            android:text="이전 문제"
-            android:background="#0091EA"
-            android:textColor="#ffffff"
-            android:id="@+id/goback"/>
+        android:layout_height="match_parent">
 
-
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/score"
-            android:layout_alignParentRight="true"
-            android:text="진행도 : 1 / 15"
-            android:textSize="20sp"/>
-    </RelativeLayout>
+            android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:text="양이 많은 음식이라면 뭐든 좋습니다"
-        android:textSize="20dp"
-        android:padding="8dp"
-        android:layout_marginBottom="15dp"
-        android:id="@+id/question"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="5dp">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="매우 아니다"
-        android:background="#0091EA"
-        android:textColor="#ffffff"
-        android:padding="5dp"
-        android:layout_marginBottom="16dp"
-        android:id="@+id/choice1"/>
+                <Button
+                    android:id="@+id/goback"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:background="@drawable/pretty_button"
+                    android:text="이전 문제"
+                    android:textSize="10dp"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="아니다"
-        android:background="#0091EA"
-        android:textColor="#ffffff"
-        android:padding="5dp"
-        android:layout_marginBottom="16dp"
-        android:id="@+id/choice2"/>
+                <View
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:id="@+id/score"
+                    android:background="@drawable/preety_textview"
+                    android:text="1 / 15"
+                    />
+            </LinearLayout>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="약간 아니다"
-        android:background="#0091EA"
-        android:textColor="#ffffff"
-        android:padding="5dp"
-        android:layout_marginBottom="16dp"
-        android:id="@+id/choice3"/>
+            <TextView
+                android:id="@+id/question"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/pretty_button"
+                android:gravity="center_horizontal|center_vertical"
+                android:padding="8dp"
+                android:text="양이 많은 음식이라면 뭐든 좋습니다"
+                android:textColor="#000000"
+                android:textSize="20dp" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="보통이다"
-        android:background="#0091EA"
-        android:textColor="#ffffff"
-        android:padding="5dp"
-        android:layout_marginBottom="16dp"
-        android:id="@+id/choice4"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="매우 아니다"
+                android:background="@drawable/pretty_button"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:elevation="10dp"
+                android:id="@+id/choice1"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="약간 그렇다"
-        android:background="#0091EA"
-        android:textColor="#ffffff"
-        android:padding="5dp"
-        android:layout_marginBottom="16dp"
-        android:id="@+id/choice5"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="그렇다"
-        android:background="#0091EA"
-        android:textColor="#ffffff"
-        android:padding="5dp"
-        android:layout_marginBottom="16dp"
-        android:id="@+id/choice6"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="아니다"
+                android:background="@drawable/pretty_button"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:elevation="10dp"
+                android:id="@+id/choice2"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="매우 그렇다"
-        android:background="#0091EA"
-        android:textColor="#ffffff"
-        android:padding="7dp"
-        android:layout_marginBottom="16dp"
-        android:id="@+id/choice7"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="약간 아니다"
+                android:background="@drawable/pretty_button"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:elevation="10dp"
+                android:id="@+id/choice3"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="보통이다"
+                android:background="@drawable/pretty_button"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:elevation="10dp"
+                android:id="@+id/choice4"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="약간 그렇다"
+                android:background="@drawable/pretty_button"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:elevation="10dp"
+                android:id="@+id/choice5"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="그렇다"
+                android:background="@drawable/pretty_button"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:elevation="10dp"
+                android:id="@+id/choice6"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="매우 그렇다"
+                android:background="@drawable/pretty_button"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:elevation="10dp"
+                android:id="@+id/choice7"/>
+        </LinearLayout>
+
+    </ScrollView>
+
+
 
 </LinearLayout>

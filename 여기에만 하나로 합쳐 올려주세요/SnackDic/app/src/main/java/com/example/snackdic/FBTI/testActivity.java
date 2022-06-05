@@ -241,7 +241,7 @@ public class testActivity extends AppCompatActivity {
 
 
     private void updateScore(int point){
-        mScoreView.setText("진행도 : " + mQuestionNumber + " / 15");
+        mScoreView.setText(mQuestionNumber + " / 15");
     }
 
 }
