@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.snackdic.MainActivity;
 import com.example.snackdic.R;
 
 public class akinatorActivity extends AppCompatActivity {
@@ -21,8 +22,8 @@ public class akinatorActivity extends AppCompatActivity {
     private Button akiAns2;
     private Button akiAns3;
     private Button akiAns4;
+    private Button goback;
     private TextView akiProgress;
-    private Button akiNext;
     private int current=0;
     private int[] answerList=new int[11];
     @Override
@@ -34,17 +35,27 @@ public class akinatorActivity extends AppCompatActivity {
         akiAns2=findViewById(R.id.aki_ans2);
         akiAns3=findViewById(R.id.aki_ans3);
         akiAns4=findViewById(R.id.aki_ans4);
+        goback=findViewById(R.id.goback1);
         akiProgress=findViewById(R.id.aki_progress);
-        akiNext=findViewById(R.id.aki_next);
+
+        goback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(current == 0){
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+                current--;
+                update();
+            }
+        });
 
         update();
-        akiNext.setOnClickListener(new View.OnClickListener(){
+        akiAns1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if(answerList[current]==0){
-                    Toast.makeText(akinatorActivity.this, "답변을 선택해주세요", Toast.LENGTH_SHORT).show();//답변 미선택시 팝업
-                    return;
-                }
+                selectAnswer(view,1);
                 current++;
                 if(current>= akiLibrary.END){
                     Intent intent = new Intent(getApplicationContext(), Aki1Activity.class);
@@ -56,28 +67,49 @@ public class akinatorActivity extends AppCompatActivity {
                 update();
             }
         });
-        akiAns1.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                selectAnswer(view,1);
-            }
-        });
         akiAns2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 selectAnswer(view,2);
+                current++;
+                if(current>= akiLibrary.END){
+                    Intent intent = new Intent(getApplicationContext(), Aki1Activity.class);
+                    intent.putExtra(Aki1Activity.SCORES,answerList);
+                    startActivity(intent);
+                    return;
+                }//질문을 다 답변했을시 결과하면으로 이동
+
+                update();
             }
         });
         akiAns3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 selectAnswer(view,3);
+                current++;
+                if(current>= akiLibrary.END){
+                    Intent intent = new Intent(getApplicationContext(), Aki1Activity.class);
+                    intent.putExtra(Aki1Activity.SCORES,answerList);
+                    startActivity(intent);
+                    return;
+                }//질문을 다 답변했을시 결과하면으로 이동
+
+                update();
             }
         });
         akiAns4.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 selectAnswer(view,4);
+                current++;
+                if(current>= akiLibrary.END){
+                    Intent intent = new Intent(getApplicationContext(), Aki1Activity.class);
+                    intent.putExtra(Aki1Activity.SCORES,answerList);
+                    startActivity(intent);
+                    return;
+                }//질문을 다 답변했을시 결과하면으로 이동
+
+                update();
             }
         });
 

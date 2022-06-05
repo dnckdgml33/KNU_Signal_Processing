@@ -60,6 +60,8 @@ public class testActivity extends AppCompatActivity {
                 if(mQuestionNumber == 0){
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
+                    finish();
+                    return;
                 }
                 updateScore(mQuestionNumber);
                 mQuestionView.setText(mMBTILibrary.getQuestion(mQuestionNumber - 1));
