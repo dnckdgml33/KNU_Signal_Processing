@@ -187,6 +187,7 @@ public class listEndActivity extends YouTubeBaseActivity {
         str1 =  str1.concat(".jpg");
 
         load = (ImageView)findViewById(R.id.limageView);
+        Glide.with(this).load(R.raw.ic_loading_img).into(load);
         FirebaseStorage storage = FirebaseStorage.getInstance("gs://snackdic-ee898.appspot.com/");
         StorageReference storageReference = storage.getReference();
         storageReference.child(str1).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {

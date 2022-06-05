@@ -25,7 +25,7 @@
             card_view:riv_corner_radius_top_right="50dp"
             card_view:riv_corner_radius_bottom_left="50dp"
             card_view:riv_corner_radius_bottom_right="50dp"
-            android:src="@mipmap/ic_launcher_round"
+            android:src="@drawable/ic_loading_img"
             card_view:riv_border_color="#333333"
             card_view:riv_mutate_background="true"
             card_view:riv_oval="false" />

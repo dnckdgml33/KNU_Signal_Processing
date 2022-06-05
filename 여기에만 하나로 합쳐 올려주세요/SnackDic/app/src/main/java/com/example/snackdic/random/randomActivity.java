@@ -65,6 +65,7 @@ public class randomActivity extends YouTubeBaseActivity {
         Button buttonretry = findViewById(R.id.rbuttonretry);
         Button buttonpopup = findViewById(R.id.rbuttonpopup);
 
+        /*
         // 파이어베이스에서 불러오는 동안 로딩화면
         loadingDialog.startLoadingDialog();
         Handler handler = new Handler();
@@ -74,7 +75,7 @@ public class randomActivity extends YouTubeBaseActivity {
                 loadingDialog.dissmissDialog();
             }
         },3000);
-
+*/
         random = randommaker();
 
         // 유튜브 관련 코드
@@ -229,6 +230,7 @@ public class randomActivity extends YouTubeBaseActivity {
 
 
         load = (ImageView)findViewById(R.id.rimageView);
+        Glide.with(this).load(R.raw.ic_loading_img).into(load);
         FirebaseStorage storage = FirebaseStorage.getInstance("gs://snackdic-ee898.appspot.com/");
         StorageReference storageReference = storage.getReference();
         storageReference.child(str1).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
