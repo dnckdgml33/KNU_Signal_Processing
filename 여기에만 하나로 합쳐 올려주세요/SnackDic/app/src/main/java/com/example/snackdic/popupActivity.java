@@ -82,7 +82,7 @@ public class popupActivity extends AppCompatActivity {
     // 주변보기 버튼 클릭
     public void mNear(View v){
         Intent intentword = getIntent();
-        String snack_name = intentword.getStringExtra("snack_name");
+        String snack_search = intentword.getStringExtra("snack_search");
         String PACKAGE_NAME_kakaomap = "net.daum.android.map";
         String PACKAGE_NAME_navermap = "com.nhn.android.nmap";
         String kakaofirst="kakaomap://search?q=";
@@ -90,9 +90,9 @@ public class popupActivity extends AppCompatActivity {
         String naverfirst="nmap://search?query=";
         String naverlast="&appname=com.example.snackdic";
         String naverweb="https://map.naver.com/v5/search/";
-        String kakaofinal=kakaofirst+snack_name+kakaolast+cur_lat+","+cur_lon;
-        String naverfinal=naverfirst+snack_name+naverlast;
-        String naverwebfinal=naverweb+snack_name;
+        String kakaofinal=kakaofirst+snack_search+kakaolast+cur_lat+","+cur_lon;
+        String naverfinal=naverfirst+snack_search+naverlast;
+        String naverwebfinal=naverweb+snack_search;
         kakaofinal=kakaofinal.replace(" ","");
         naverfinal=naverfinal.replace(" ", "");
         naverwebfinal=naverwebfinal.replace(" ","");
