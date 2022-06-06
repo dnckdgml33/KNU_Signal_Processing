@@ -4,5 +4,10 @@
     <font android:fontStyle="normal"
         android:fontWeight="400"
         android:font="@font/baemin"/>
-
+    <font android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/jalnan"/>
+    <font android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/nam_round"/>
 </font-family>

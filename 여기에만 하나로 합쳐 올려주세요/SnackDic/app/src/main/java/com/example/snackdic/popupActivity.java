@@ -82,7 +82,7 @@ public class popupActivity extends AppCompatActivity {
     // 주변보기 버튼 클릭
     public void mNear(View v){
         Intent intentword = getIntent();
-        String snack_search = intentword.getStringExtra("snack_search");
+        String snack_name = intentword.getStringExtra("snack_name");
         String PACKAGE_NAME_kakaomap = "net.daum.android.map";
         String PACKAGE_NAME_navermap = "com.nhn.android.nmap";
         String kakaofirst="kakaomap://search?q=";
@@ -90,32 +90,26 @@ public class popupActivity extends AppCompatActivity {
         String naverfirst="nmap://search?query=";
         String naverlast="&appname=com.example.snackdic";
         String naverweb="https://map.naver.com/v5/search/";
-        String kakaofinal=kakaofirst+snack_search+kakaolast+cur_lat+","+cur_lon;
-        String naverfinal=naverfirst+snack_search+naverlast;
-        String naverwebfinal=naverweb+snack_search;
-        kakaofinal=kakaofinal.replace(" ","");
-        naverfinal=naverfinal.replace(" ", "");
-        naverwebfinal=naverwebfinal.replace(" ","");
 
 
         PackageManager pm = getPackageManager();
         if (isPackageInstalled(PACKAGE_NAME_kakaomap, pm)) { // 카카오맵 설치되어 있으면
             // URL Scheme 활용 가게 검색
-            String url = kakaofinal;
+            String url = kakaofirst+snack_name+kakaolast+cur_lat+","+cur_lon;
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
             startActivity(intent);
         }
         else if (isPackageInstalled(PACKAGE_NAME_navermap, pm)) { // 네이버지도 설치되어 있으면
             // URL Scheme 활용 가게 검색
-            String url =naverfinal;
+            String url =naverfirst+snack_name+naverlast;
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
             startActivity(intent);
         }
         else { // 둘 다 설치되어 있지 않으면
             // 네이버 지도 웹버전으로 검색
             Intent intent = new Intent(Intent.ACTION_VIEW);
-            Uri uri = Uri.parse(naverwebfinal); // 링크
-            System.out.println(naverwebfinal);
+            Uri uri = Uri.parse(naverweb+snack_name); // 링크
+            System.out.println(naverweb+snack_name);
             intent.setData(uri);
             startActivity(intent);
         }

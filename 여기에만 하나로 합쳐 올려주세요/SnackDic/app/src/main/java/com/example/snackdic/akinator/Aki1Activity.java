@@ -82,8 +82,17 @@ public class Aki1Activity extends YouTubeBaseActivity{
         Snack result= ExcelReader.readFromExcel(this, money, how, temp, taste,amount,people);//계산한 값을 가져옴
 
 
-        score.setText(amount+"점");//점수
-        akikcal.setText(result.getKcal()+"kcal");
+        if(result != null) {
+            score.setText(amount + "점");//점수
+            akikcal.setText(result.getKcal() + "kcal");
+        }
+        else{
+            Toast.makeText(Aki1Activity.this, "현재 저희 앱에 존재하지 않는 간식이에요 ㅠㅠ", Toast.LENGTH_LONG).show();//답변 미선택시 팝업
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+            //finish();
+            return;
+        }
 
 
         mainButton.setOnClickListener(new View.OnClickListener(){
@@ -113,9 +122,7 @@ public class Aki1Activity extends YouTubeBaseActivity{
 
                 // 간식 이름 클립보드 복사 위해 popupActivity로 전달
                 Intent intent = new Intent(Aki1Activity.this, popupActivity.class);
-                System.out.println(result.getSearch());
                 intent.putExtra("snack_name",result.getName());
-                intent.putExtra("snack_search",result.getSearch());
                 startActivity(intent);
 
             }
@@ -192,4 +199,3 @@ public class Aki1Activity extends YouTubeBaseActivity{
         });
     }
 }
-
