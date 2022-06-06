@@ -27,6 +27,8 @@ import java.util.List;
 public class popupActivity extends AppCompatActivity {
 
     Button near, appconnect, cancel;
+    private double cur_lat;
+    private double cur_lon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,15 +50,15 @@ public class popupActivity extends AppCompatActivity {
             Location loc_cur = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
             if(loc_cur != null){
-                double cur_lat = loc_cur.getLatitude(); // 위도
-                double cur_lon = loc_cur.getLongitude(); // 경도
+                cur_lat = loc_cur.getLatitude(); // 위도
+                cur_lon = loc_cur.getLongitude(); // 경도
 
                 Toast.makeText(getApplicationContext(), Double.toString(cur_lat),Toast.LENGTH_SHORT).show();
             }
             else{
                 loc_cur = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-                double cur_lat = loc_cur.getLatitude(); // 위도
-                double cur_lon = loc_cur.getLongitude(); // 경도
+//                cur_lat = loc_cur.getLatitude(); // 위도
+//                cur_lon = loc_cur.getLongitude(); // 경도
 
                 Toast.makeText(getApplicationContext(), Double.toString(cur_lat),Toast.LENGTH_SHORT).show();
             }
@@ -79,26 +81,35 @@ public class popupActivity extends AppCompatActivity {
 
     // 주변보기 버튼 클릭
     public void mNear(View v){
+        Intent intentword = getIntent();
+        String snack_name = intentword.getStringExtra("snack_name");
         String PACKAGE_NAME_kakaomap = "net.daum.android.map";
         String PACKAGE_NAME_navermap = "com.nhn.android.nmap";
+        String kakaofirst="kakaomap://search?q=";
+        String kakaolast="&p=";
+        String naverfirst="nmap://search?query=";
+        String naverlast="&appname=com.example.snackdic";
+        String naverweb="https://map.naver.com/v5/search/";
+
 
         PackageManager pm = getPackageManager();
         if (isPackageInstalled(PACKAGE_NAME_kakaomap, pm)) { // 카카오맵 설치되어 있으면
             // URL Scheme 활용 가게 검색
-            String url = "kakaomap://search?q=제육볶음&p=35.888836,128.6102997";
+            String url = kakaofirst+snack_name+kakaolast+cur_lat+","+cur_lon;
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
             startActivity(intent);
         }
         else if (isPackageInstalled(PACKAGE_NAME_navermap, pm)) { // 네이버지도 설치되어 있으면
             // URL Scheme 활용 가게 검색
-            String url = "nmap://search?query=제육볶음&appname=com.example.snackdic";
+            String url =naverfirst+snack_name+naverlast;
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
             startActivity(intent);
         }
         else { // 둘 다 설치되어 있지 않으면
             // 네이버 지도 웹버전으로 검색
             Intent intent = new Intent(Intent.ACTION_VIEW);
-            Uri uri = Uri.parse("https://map.naver.com/v5/search/제육볶음"); // 링크
+            Uri uri = Uri.parse(naverweb+snack_name); // 링크
+            System.out.println(naverweb+snack_name);
             intent.setData(uri);
             startActivity(intent);
         }

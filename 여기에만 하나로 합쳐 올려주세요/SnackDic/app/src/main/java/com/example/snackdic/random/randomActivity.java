@@ -188,8 +188,6 @@ public class randomActivity extends YouTubeBaseActivity {
             textView.setText(word[random]);
 
             snackname = word[random];
-            System.out.println(snackname);
-            System.out.println(random);
 
             StringBuilder sb;
             for(int i = 0; i < word.length; ++i) {
