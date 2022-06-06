@@ -42,15 +42,17 @@ public class ExcelReader {
                         int ntaste = Integer.parseInt(sheet.getCell(10, row).getContents());
                         int namount = Integer.parseInt(sheet.getCell(9, row).getContents());
                         int ncal = Integer.parseInt(sheet.getCell(7, row).getContents());
+                        String nsearch = sheet.getCell(12, row).getContents();
+
 
                         if(ncost<=money&&namount<=amount){
                             if(temp==4||temp==ntemp) {
                                 if (taste == 4 || taste == ntaste) {
                                     if(how==4){
-                                        snacks.add(new Snack(name,nuri,ncal));
+                                        snacks.add(new Snack(name,nuri,ncal,nsearch));
                                     }
                                     else if(how==nhow){
-                                        snacks.add(new Snack(name,nuri,ncal));
+                                        snacks.add(new Snack(name,nuri,ncal,nsearch));
                                     }
                                     else{
                                         continue;

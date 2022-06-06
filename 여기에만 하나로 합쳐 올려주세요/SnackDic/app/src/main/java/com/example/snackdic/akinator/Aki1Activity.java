@@ -122,7 +122,9 @@ public class Aki1Activity extends YouTubeBaseActivity{
 
                 // 간식 이름 클립보드 복사 위해 popupActivity로 전달
                 Intent intent = new Intent(Aki1Activity.this, popupActivity.class);
+                System.out.println(result.getSearch());
                 intent.putExtra("snack_name",result.getName());
+                intent.putExtra("snack_search",result.getSearch());
                 startActivity(intent);
 
             }

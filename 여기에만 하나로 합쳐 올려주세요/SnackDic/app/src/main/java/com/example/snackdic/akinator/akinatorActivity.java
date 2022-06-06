@@ -56,60 +56,32 @@ public class akinatorActivity extends AppCompatActivity {
         akiAns1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                selectAnswer(view,1);
                 current++;
-                if(current>= akiLibrary.END){
-                    Intent intent = new Intent(getApplicationContext(), Aki1Activity.class);
-                    intent.putExtra(Aki1Activity.SCORES,answerList);
-                    startActivity(intent);
-                    return;
-                }//질문을 다 답변했을시 결과하면으로 이동
-
+                selectAnswer(view,1);
                 update();
             }
         });
         akiAns2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                selectAnswer(view,2);
                 current++;
-                if(current>= akiLibrary.END){
-                    Intent intent = new Intent(getApplicationContext(), Aki1Activity.class);
-                    intent.putExtra(Aki1Activity.SCORES,answerList);
-                    startActivity(intent);
-                    return;
-                }//질문을 다 답변했을시 결과하면으로 이동
-
+                selectAnswer(view,2);
                 update();
             }
         });
         akiAns3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                selectAnswer(view,3);
                 current++;
-                if(current>= akiLibrary.END){
-                    Intent intent = new Intent(getApplicationContext(), Aki1Activity.class);
-                    intent.putExtra(Aki1Activity.SCORES,answerList);
-                    startActivity(intent);
-                    return;
-                }//질문을 다 답변했을시 결과하면으로 이동
-
+                selectAnswer(view,3);
                 update();
             }
         });
         akiAns4.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                selectAnswer(view,4);
                 current++;
-                if(current>= akiLibrary.END){
-                    Intent intent = new Intent(getApplicationContext(), Aki1Activity.class);
-                    intent.putExtra(Aki1Activity.SCORES,answerList);
-                    startActivity(intent);
-                    return;
-                }//질문을 다 답변했을시 결과하면으로 이동
-
+                selectAnswer(view,4);
                 update();
             }
         });
@@ -124,18 +96,15 @@ public class akinatorActivity extends AppCompatActivity {
         akiAns3.setText(akiLibrary.akiAnswer[current][2]);
         akiAns4.setText(akiLibrary.akiAnswer[current][3]);
         LinearLayout buttons=findViewById(R.id.buttons);
-        for(int i=0; i<buttons.getChildCount();i++){
-            buttons.getChildAt(i).setBackgroundColor(getApplicationContext().getResources().getColor(R.color.purple_500));
-        }
         akiProgress.setText(current+1+"/10");
     }//다음버튼을 눌렀을때실행됨
     private void selectAnswer(View view,int num){
-        ViewGroup parent= (ViewGroup) view.getParent();
-        for(int i=0; i<parent.getChildCount();i++){
-            parent.getChildAt(i).setBackgroundColor(getApplicationContext().getResources().getColor(R.color.purple_500));
-        }
-        view.setBackgroundColor(getApplicationContext().getResources().getColor(R.color.purple_200));
-
+        if(current>= akiLibrary.END){
+            Intent intent = new Intent(getApplicationContext(), Aki1Activity.class);
+            intent.putExtra(Aki1Activity.SCORES,answerList);
+            startActivity(intent);
+            return;
+        }//질문을 다 답변했을시 결과하면으로 이동
         answerList[current]=num;
     }//답변 눌렀을때 버튼의 색깔을 바꿔줌
 }
