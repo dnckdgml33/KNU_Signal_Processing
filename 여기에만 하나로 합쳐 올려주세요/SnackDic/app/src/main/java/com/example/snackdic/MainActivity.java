@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.snackdic.FBTI.testActivity;
@@ -22,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // 분류별 보기 버튼 클릭시 액티비티 전환
-        Button list_btn = (Button) findViewById(R.id.button_list);
+        LinearLayout list_btn = (LinearLayout) findViewById(R.id.button_list);
         list_btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -32,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // 랜덤 버튼 클릭시 액티비티 전환
-        Button random_btn = (Button) findViewById(R.id.button_random);
+        LinearLayout random_btn = (LinearLayout) findViewById(R.id.button_random);
         random_btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -42,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // 스무고개 버튼 클릭시 액티비티 전환
-        Button akinator_btn = (Button) findViewById(R.id.button_akinator);
+        LinearLayout akinator_btn = (LinearLayout) findViewById(R.id.button_akinator);
         akinator_btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -52,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // 성향검사 버튼 클릭시 액티비티 전환
-        Button test_btn = (Button) findViewById(R.id.button_test);
+        LinearLayout test_btn = (LinearLayout) findViewById(R.id.button_test);
         test_btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -61,16 +63,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // 랜덤뽑기 버튼 클릭시 액티비티 전환
-        Button pick_btn = (Button) findViewById(R.id.button_pick);
-        pick_btn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                Toast.makeText(getApplicationContext(),"결제 성공 시 기프티콘 표시",Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), randompickActivity.class);
-                startActivity(intent);
-            }
-        });
 
         // 커스텀 다이얼로그를 호출할 버튼을 정의한다.
         ImageButton question_btn = (ImageButton) findViewById(R.id.button_question);
