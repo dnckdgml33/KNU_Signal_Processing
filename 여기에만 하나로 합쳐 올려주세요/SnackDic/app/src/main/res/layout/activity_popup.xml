@@ -1,61 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="#eeeeee"
-    android:orientation="vertical"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@drawable/card_view_background"
+    android:orientation="vertical">
+
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/titleTV"
-            android:text="팝업메뉴"
-            android:textSize="20sp"
-            android:gravity="center"
-            android:textColor="#fff"
-            android:background="@color/design_default_color_primary"
-            android:layout_width="match_parent"
-            android:layout_height="53sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/near_Button"
-            android:text="주변가게보기"
-            android:textSize="20sp"
-            android:layout_width="145dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/pretty_button"
-            android:onClick="mNear"/>
+        android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/app_Button"
-            android:text="배달앱 연결"
-            android:textSize="20sp"
-            android:layout_width="145dp"
+        <LinearLayout
+            android:id="@+id/near_Button"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/pretty_button"
-            android:onClick="mAppConnect"/>
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/kakaomapicon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/jalnan"
+                android:text="주변가게 보기"
+                android:textColor="#6f6f6f"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/app_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/baeminicon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/jalnan"
+                android:text="배민 연결"
+                android:textColor="#6f6f6f"
+                android:textSize="18sp" />
+        </LinearLayout>
 
     </LinearLayout>
 
 
     <Button
         android:id="@+id/cancel_Button"
-        android:text="닫기"
-        android:textSize="20sp"
-        android:textColor="@color/black"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="#00ff0000"
-        android:onClick="mCancel"/>
+        android:fontFamily="@font/jalnan"
+        android:onClick="mCancel"
+        android:text="닫기"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
 
 
 </LinearLayout>
