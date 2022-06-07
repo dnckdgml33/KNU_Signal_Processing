@@ -37,7 +37,7 @@ public class listEndActivity extends YouTubeBaseActivity {
     private Intent intent; //인텐트 선언
     int supernum;
     Button buttonhome,buttonpopup;
-    String snackname;
+    String snackname,snackstore;
 
     //객체 선언
     YouTubePlayerView playerView;
@@ -82,6 +82,7 @@ public class listEndActivity extends YouTubeBaseActivity {
         readFromExcel();
         readFromTxt();
         getImgfromFirebase();
+        readFromTxt2();
 
         // 팝업 메뉴
         buttonpopup.setOnClickListener(new View.OnClickListener() {
@@ -89,6 +90,7 @@ public class listEndActivity extends YouTubeBaseActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),popupActivity.class);
                 intent.putExtra("snack_name",snackname);
+                intent.putExtra("snack_search",snackstore);
                 startActivity(intent);
             }
         });
@@ -163,6 +165,49 @@ public class listEndActivity extends YouTubeBaseActivity {
                 sb.append("i is"+i+" : "+word[i]);
                 Log.i("test", sb.toString());
             }
+
+            is.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        if(is!=null){
+            try{
+                is.close();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
+    // txt에서 읽어오는 함수
+    public void readFromTxt2(){
+        AssetManager am = getResources().getAssets();
+        InputStream is = null;
+        byte buf[] = new byte[5120];
+        String text = "";
+
+        try{
+            is = am.open("snack_store_list.txt");
+
+            if(is.read(buf) > 0){
+                text = new String(buf);
+            }
+
+
+
+            String[] word = text.split("\n");
+
+            snackstore = word[supernum];
+
+            StringBuilder sb;
+            for(int i = 0; i < word.length; ++i) {
+                sb = new StringBuilder();
+                sb.append("i is"+i+" : "+word[i]);
+                Log.i("test", sb.toString());
+            }
+
+
 
             is.close();
         }catch (Exception e){

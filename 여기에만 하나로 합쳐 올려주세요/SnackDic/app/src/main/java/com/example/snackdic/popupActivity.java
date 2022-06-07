@@ -97,6 +97,8 @@ public class popupActivity extends AppCompatActivity {
         naverfinal=naverfinal.replace(" ", "");
         naverwebfinal=naverwebfinal.replace(" ","");
 
+        Toast.makeText(getApplicationContext(), kakaofinal,Toast.LENGTH_SHORT).show();
+
 
         PackageManager pm = getPackageManager();
         if (isPackageInstalled(PACKAGE_NAME_kakaomap, pm)) { // 카카오맵 설치되어 있으면

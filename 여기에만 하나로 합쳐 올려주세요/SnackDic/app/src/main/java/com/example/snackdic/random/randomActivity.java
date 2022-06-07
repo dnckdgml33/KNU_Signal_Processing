@@ -41,7 +41,7 @@ import com.bumptech.glide.Glide;
 public class randomActivity extends YouTubeBaseActivity {
 
     int random;
-    String snackname;
+    String snackname,snackstore;
 
     //객체 선언
     YouTubePlayerView playerView;
@@ -77,6 +77,10 @@ public class randomActivity extends YouTubeBaseActivity {
         },3000);
 */
         random = randommaker();
+
+        getImgfromFirebase();
+        readFromTxt();
+        readFromTxt2();
 
         // 유튜브 관련 코드
         initPlayer();
@@ -118,13 +122,11 @@ public class randomActivity extends YouTubeBaseActivity {
                 // 간식 이름 클립보드 복사 위해 popupActivity로 전달
                 Intent intent = new Intent(randomActivity.this, popupActivity.class);
                 intent.putExtra("snack_name",snackname);
+                intent.putExtra("snack_search",snackstore);
                 startActivity(intent);
             }
         });
 
-        getImgfromFirebase();
-        readFromExcel();
-        readFromTxt();
 
     }
 
@@ -188,6 +190,49 @@ public class randomActivity extends YouTubeBaseActivity {
             textView.setText(word[random]);
 
             snackname = word[random];
+
+            StringBuilder sb;
+            for(int i = 0; i < word.length; ++i) {
+                sb = new StringBuilder();
+                sb.append("i is"+i+" : "+word[i]);
+                Log.i("test", sb.toString());
+            }
+
+
+
+            is.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        if(is!=null){
+            try{
+                is.close();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
+    // txt에서 가게 읽어오는 함수
+    public void readFromTxt2(){
+        AssetManager am = getResources().getAssets();
+        InputStream is = null;
+        byte buf[] = new byte[5120];
+        String text = "";
+
+        try{
+            is = am.open("snack_store_list.txt");
+
+            if(is.read(buf) > 0){
+                text = new String(buf);
+            }
+
+
+
+            String[] word = text.split("\n");
+
+            snackstore = word[random];
 
             StringBuilder sb;
             for(int i = 0; i < word.length; ++i) {
