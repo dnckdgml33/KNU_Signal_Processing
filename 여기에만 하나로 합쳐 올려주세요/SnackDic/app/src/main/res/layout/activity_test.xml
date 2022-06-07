@@ -19,20 +19,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <LinearLayout
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="141dp"
+                    android:scaleType="fitXY"
+                    android:background="@drawable/bg_aki" />
+
+                <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_margin="5dp">
 
-                <Button
+                <android.widget.Button
                     android:id="@+id/goback"
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:background="@drawable/pretty_button"
-                    android:text="이전 문제"
-                    android:textSize="10dp"/>
+                    android:text="이전 항목"
+                    android:textSize="15dp"/>
 
                 <View
                     android:layout_weight="1"
@@ -47,108 +57,140 @@
                     />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/question"
+                <TextView
+                    android:id="@+id/question"
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="40dp"
+                    android:background="@drawable/shadow_test"
+                    android:fontFamily="@font/nam_round"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:padding="8dp"
+                    android:text="양이 많은 음식이라면 뭐든 좋습니다"
+                    android:textColor="#000000"
+                    android:textSize="20dp"/>
+            </FrameLayout>
+
+            <android.widget.Button
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="20dp"
+                android:layout_height="50dp"
+                android:text="   매우 아니다"
                 android:background="@drawable/pretty_button"
-                android:gravity="center_horizontal|center_vertical"
-                android:padding="8dp"
-                android:text="양이 많은 음식이라면 뭐든 좋습니다"
-                android:textColor="#000000"
-                android:textSize="20dp"
+                android:layout_margin="4dp"
+                android:textAlignment="textStart"
+                android:layout_gravity="start"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:elevation="10dp"
+                android:textSize="25dp"
+                android:id="@+id/choice1"
                 android:fontFamily="@font/nam_round"/>
 
-            <Button
+            <android.widget.Button
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="매우 아니다"
+                android:layout_height="50dp"
+                android:text="   아니다"
                 android:background="@drawable/pretty_button"
+                android:layout_margin="4dp"
+                android:textAlignment="textStart"
+                android:layout_gravity="start"
                 android:layout_marginStart="40dp"
                 android:layout_marginEnd="40dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:elevation="10dp"
-                android:id="@+id/choice1"
-                android:fontFamily="@font/baemin"/>
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="아니다"
-                android:background="@drawable/pretty_button"
-                android:layout_marginStart="40dp"
-                android:layout_marginEnd="40dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:elevation="10dp"
+                android:textSize="25dp"
                 android:id="@+id/choice2"
                 android:fontFamily="@font/nam_round"/>
 
-            <Button
+            <android.widget.Button
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="약간 아니다"
+                android:layout_height="50dp"
+                android:text="   약간 아니다"
                 android:background="@drawable/pretty_button"
+                android:layout_margin="4dp"
+                android:textAlignment="textStart"
+                android:layout_gravity="start"
                 android:layout_marginStart="40dp"
                 android:layout_marginEnd="40dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:elevation="10dp"
+                android:textSize="25dp"
                 android:id="@+id/choice3"
-                android:fontFamily="@font/jalnan"/>
+                android:fontFamily="@font/nam_round"/>
 
-            <Button
+            <android.widget.Button
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="보통이다"
+                android:layout_height="50dp"
+                android:text="   보통이다"
                 android:background="@drawable/pretty_button"
+                android:layout_margin="4dp"
+                android:textAlignment="textStart"
+                android:layout_gravity="start"
                 android:layout_marginStart="40dp"
                 android:layout_marginEnd="40dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:elevation="10dp"
-                android:id="@+id/choice4"/>
+                android:textSize="25dp"
+                android:id="@+id/choice4"
+                android:fontFamily="@font/nam_round"/>
 
-            <Button
+
+            <android.widget.Button
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="약간 그렇다"
+                android:layout_height="50dp"
+                android:text="   약간 그렇다"
                 android:background="@drawable/pretty_button"
+                android:layout_margin="4dp"
+                android:textAlignment="textStart"
+                android:layout_gravity="start"
                 android:layout_marginStart="40dp"
                 android:layout_marginEnd="40dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:elevation="10dp"
-                android:id="@+id/choice5"/>
-            <Button
+                android:textSize="25dp"
+                android:id="@+id/choice5"
+                android:fontFamily="@font/nam_round"/>
+
+                <android.widget.Button
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="그렇다"
+                android:layout_height="50dp"
+                android:text="   그렇다"
                 android:background="@drawable/pretty_button"
+                android:layout_margin="4dp"
+                android:textAlignment="textStart"
+                android:layout_gravity="start"
                 android:layout_marginStart="40dp"
                 android:layout_marginEnd="40dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:elevation="10dp"
+                android:textSize="25dp"
                 android:id="@+id/choice6"/>
-
-            <Button
+            <android.widget.Button
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="매우 그렇다"
+                android:layout_height="50dp"
+                android:text="   매우 그렇다"
                 android:background="@drawable/pretty_button"
+                android:layout_margin="4dp"
+                android:textAlignment="textStart"
+                android:layout_gravity="start"
                 android:layout_marginStart="40dp"
                 android:layout_marginEnd="40dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:elevation="10dp"
-                android:id="@+id/choice7"/>
+                android:textSize="25dp"
+                android:id="@+id/choice7"
+                android:fontFamily="@font/nam_round"/>
+
         </LinearLayout>
 
     </ScrollView>

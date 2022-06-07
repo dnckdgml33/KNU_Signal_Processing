@@ -7,7 +7,7 @@ android:color="#9B111E"> <!-- Ripple Effect 색상 -->
         <shape
             android:shape="rectangle" android:padding = "10dp">
             <solid
-                android:color="#BBCAFF"/>
+                android:color="#F2D5F8"/>
             <corners
                 android:radius="50dp"/>
         </shape>

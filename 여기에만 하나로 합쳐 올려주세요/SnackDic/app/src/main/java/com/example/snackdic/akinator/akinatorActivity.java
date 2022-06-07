@@ -123,17 +123,12 @@ public class akinatorActivity extends AppCompatActivity {
         akiAns3.setText(akiLibrary.akiAnswer[current][2]);
         akiAns4.setText(akiLibrary.akiAnswer[current][3]);
         LinearLayout buttons=findViewById(R.id.buttons);
-        for(int i=0; i<buttons.getChildCount();i++){
-            buttons.getChildAt(i).setBackgroundColor(getApplicationContext().getResources().getColor(R.color.purple_500));
-        }
+
         akiProgress.setText(current+1+"/10");
     }//다음버튼을 눌렀을때실행됨
     private void selectAnswer(View view,int num){
         ViewGroup parent= (ViewGroup) view.getParent();
-        for(int i=0; i<parent.getChildCount();i++){
-            parent.getChildAt(i).setBackgroundColor(getApplicationContext().getResources().getColor(R.color.purple_500));
-        }
-        view.setBackgroundColor(getApplicationContext().getResources().getColor(R.color.purple_200));
+
 
         answerList[current]=num;
     }//답변 눌렀을때 버튼의 색깔을 바꿔줌
