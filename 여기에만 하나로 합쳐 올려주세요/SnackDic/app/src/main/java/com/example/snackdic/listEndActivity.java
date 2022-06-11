@@ -45,7 +45,7 @@ public class listEndActivity extends YouTubeBaseActivity {
     //유튜브 API KEY와 동영상 ID 변수 설정
     private static String API_KEY = "AIzaSyBHoQH3xkRiQz7UMR9qYaASxJBPPo0-LBs";
     //https://www.youtube.com/watch?v=hl-ii7W4ITg ▶ 유튜브 동영상 v= 다음 부분이 videoId
-    private static String videoId = "t2rmf3LRajw";
+    private static String videoId = "beZrxBOOWtc";
     //logcat 사용 설정
     private static final String TAG = "listEndActivity";
 
