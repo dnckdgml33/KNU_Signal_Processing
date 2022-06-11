@@ -17,14 +17,16 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.google.android.youtube.player.YouTubePlayerView
-                android:id="@+id/youTubePlayerView3"
+            <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                android:id="@+id/youTubePlayerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
-                android:elevation="10dp" />
+                app:videoId="beZrxBOOWtc"
+                app:autoPlay="true" />
+            android:elevation="10dp" />
 
             <com.makeramen.roundedimageview.RoundedImageView
                 android:id="@+id/aki_pic"

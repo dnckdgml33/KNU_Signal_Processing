@@ -14,17 +14,15 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.example.snackdic.random.loadingDialog;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.youtube.player.YouTubeBaseActivity;
-import com.google.android.youtube.player.YouTubeInitializationResult;
-import com.google.android.youtube.player.YouTubePlayer;
-import com.google.android.youtube.player.YouTubePlayerView;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -33,19 +31,13 @@ import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
-public class listEndActivity extends YouTubeBaseActivity {
+public class listEndActivity extends AppCompatActivity {
     private Intent intent; //인텐트 선언
     int supernum;
     Button buttonhome,buttonpopup;
     String snackname,snackstore;
 
-    //객체 선언
-    YouTubePlayerView playerView;
-    YouTubePlayer player;
-    //유튜브 API KEY와 동영상 ID 변수 설정
-    private static String API_KEY = "AIzaSyBHoQH3xkRiQz7UMR9qYaASxJBPPo0-LBs";
-    //https://www.youtube.com/watch?v=hl-ii7W4ITg ▶ 유튜브 동영상 v= 다음 부분이 videoId
-    private static String videoId = "beZrxBOOWtc";
+
     //logcat 사용 설정
     private static final String TAG = "listEndActivity";
 
@@ -58,15 +50,9 @@ public class listEndActivity extends YouTubeBaseActivity {
         buttonpopup = findViewById(R.id.lbuttonpopup);
 
 
-
-        initPlayer();
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                playVideo();
-                //딜레이 후 시작할 코드 작성
-            }
-        }, 3000);// 3초 정도 딜레이를 준 후 시작
+        // 유튜브 관련 코드
+        YouTubePlayerView youTubePlayerView = findViewById(R.id.youTubePlayerView);
+        getLifecycle().addObserver(youTubePlayerView);
 
         // 홈으로
         buttonhome.setOnClickListener(new View.OnClickListener() {
@@ -247,51 +233,6 @@ public class listEndActivity extends YouTubeBaseActivity {
             }
         });
 
-    }
-
-    private void playVideo() {
-        if(player != null) {
-            if(player.isPlaying()) {
-                player.pause();
-            }
-            player.cueVideo(videoId);
-        }
-    }
-    //유튜브 플레이어 메서드
-    private void initPlayer() {
-        playerView = findViewById(R.id.youTubePlayerView2);
-        playerView.initialize(API_KEY, new YouTubePlayer.OnInitializedListener() {
-            @Override
-            public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
-                player = youTubePlayer;
-                player.setPlayerStateChangeListener(new YouTubePlayer.PlayerStateChangeListener() {
-                    @Override
-                    public void onLoading() {
-                    }
-                    @Override
-                    public void onLoaded(String id) {
-                        Log.d(TAG, "onLoaded: " + id);
-                        player.play();
-                    }
-                    @Override
-                    public void onAdStarted() {
-                    }
-                    @Override
-                    public void onVideoStarted() {
-                    }
-                    @Override
-                    public void onVideoEnded() {
-                    }
-                    @Override
-                    public void onError(YouTubePlayer.ErrorReason errorReason) {
-                        Log.d(TAG, "onError: " + errorReason);
-                    }
-                });
-            }
-            @Override
-            public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
-            }
-        });
     }
 
 }
