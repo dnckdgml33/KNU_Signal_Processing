@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:864306494754:android:90f2c7d1a57cbcca63b97b",
         "android_client_info": {
-          "package_name": "com.example.snackdic"
+          "package_name": "com.snack.snackdic"
         }
       },
       "oauth_client": [

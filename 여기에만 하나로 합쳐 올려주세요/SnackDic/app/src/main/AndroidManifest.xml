@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.snackdic">
+    package="com.snack.snackdic">
 
     <queries>
         <package
@@ -84,7 +84,7 @@
         </activity>
 
         <activity android:name=".popupActivity"
-            android:theme="@style/popupTheme" android:screenOrientation="portrait">
+            android:theme="@style/popupTheme" android:screenOrientation="unspecified">
         </activity>
 
     </application>
